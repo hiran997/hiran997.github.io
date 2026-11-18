@@ -1,0 +1,905 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hiran Maladenige, Engineer</title>
+<meta name="description" content="Hiran Maladenige is a Product and R&D Engineer in Kuopio, Finland, working from requirements through CAD, electronics, prototyping and validation.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap">
+<style>
+/* Layout: restrained engineering-consultancy page. Name-led hero with an "At a glance" panel, proof strip,
+   numbered case studies (first one annotated), interactive engineering models, role mapping, approach,
+   career with education and publications, capabilities, contact band. One slate accent, thin gold rule. */
+:root{
+  --paper:#f3f4f3; --surface:#ffffff; --raised:#eef1f2; --ink:#1b2731; --muted:#65717a; --line:#d9dddf;
+  --accent:#27465b; --accent-ink:#ffffff; --accent-soft:#e4eaed; --gold:#b18a53;
+  --panel:#202f3b; --panel-ink:#eef2f4; --panel-muted:#b3c0c7; --band:#203b4d;
+  --good:#2f7a55; --good-soft:#e1efe7; --warn:#a8741c; --bad:#b4443a;
+  --sans:"DM Sans",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+  --mono:"DM Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#11181e; --surface:#172129; --raised:#1d2a33; --ink:#e4e9ec; --muted:#9aa7af; --line:#2a3741;
+  --accent:#8db2c9; --accent-ink:#11181e; --accent-soft:#20303b; --gold:#c9a46c;
+  --panel:#0c1217; --panel-ink:#e4e9ec; --panel-muted:#9aa7af; --band:#0f1e28;
+  --good:#5cc08b; --good-soft:#163024; --warn:#e0a94c; --bad:#e77d72; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#11181e; --surface:#172129; --raised:#1d2a33; --ink:#e4e9ec; --muted:#9aa7af; --line:#2a3741;
+  --accent:#8db2c9; --accent-ink:#11181e; --accent-soft:#20303b; --gold:#c9a46c;
+  --panel:#0c1217; --panel-ink:#e4e9ec; --panel-muted:#9aa7af; --band:#0f1e28;
+  --good:#5cc08b; --good-soft:#163024; --warn:#e0a94c; --bad:#e77d72; color-scheme:dark}
+
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{background:var(--paper);color:var(--ink);font:15px/1.65 var(--sans);-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:40;background:var(--paper)}
+.gut{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:1140px;margin:0 auto}
+h1,h2,h3,h4{margin:0;text-wrap:balance}
+p{margin:0}
+a{color:inherit}
+img{max-width:100%;display:block}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.label{font:500 .67rem var(--mono);text-transform:uppercase;letter-spacing:.15em;color:var(--accent)}
+input[type=range]{accent-color:var(--accent);width:100%;margin:0;min-width:0}
+
+/* nav */
+nav.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:color-mix(in srgb,var(--paper) 94%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+nav.top .wrap{height:64px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{text-decoration:none;font-weight:700;font-size:.8rem;letter-spacing:.12em;white-space:nowrap}
+.nav{display:flex;align-items:center;gap:26px}
+.nav a{text-decoration:none;color:var(--muted);font-size:.8rem;font-weight:500}
+.nav a:hover{color:var(--accent)}
+.nav .cta{color:var(--accent);border:1px solid var(--accent);border-radius:2px;padding:6px 13px}
+@media (max-width:820px){.nav a:not(.cta):not(.keep){display:none}.nav{gap:14px}}
+
+/* hero */
+.hero{padding-block:56px 44px;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.8fr);gap:64px;align-items:start}
+.hero>div:first-child{padding-top:36px}
+@media (max-width:860px){.hero>div:first-child{padding-top:0}}
+@media (max-width:520px){.nav a.keep{display:none}}
+.reach{display:flex;flex-wrap:wrap;gap:6px 20px;margin-top:22px;font:500 .78rem var(--mono);color:var(--muted)}
+.reach a{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line)}
+.reach a:hover{border-color:var(--accent)}
+.creds{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px;padding-top:14px;border-top:1px solid color-mix(in srgb,var(--panel-ink) 16%,transparent)}
+.creds a{display:grid;grid-template-columns:46px minmax(0,1fr);gap:10px;align-items:center;text-decoration:none;color:var(--panel-ink)}
+.creds img{width:46px;height:46px;border-radius:5px;background:#fff}
+.creds b{display:block;font-size:.82rem;font-weight:600}
+.creds span{display:block;font-size:.7rem;color:var(--panel-muted);line-height:1.4}
+.creds i{font:normal 500 .66rem var(--mono);color:#d8c28e}
+.creds a:hover i{text-decoration:underline}
+@media (max-width:860px){.hero{grid-template-columns:1fr;gap:36px;padding-block:52px 40px}}
+.hero h1{font-weight:600;font-size:clamp(2.6rem,5.8vw,5rem);line-height:1.02;letter-spacing:-.055em;margin:18px 0 10px}
+.roleline{font-size:.8rem;letter-spacing:.09em;text-transform:uppercase;font-weight:600;color:var(--accent);margin-bottom:20px}
+.intro{font-size:1rem;line-height:1.78;color:var(--muted);max-width:62ch;margin-bottom:28px}
+.actions{display:flex;flex-wrap:wrap;gap:10px}
+.button{display:inline-flex;align-items:center;min-height:44px;padding:10px 18px;border-radius:2px;background:var(--accent);color:var(--accent-ink);text-decoration:none;font-weight:600;font-size:.8rem;letter-spacing:.02em;border:1px solid var(--accent);cursor:pointer}
+.button.secondary{background:transparent;color:var(--ink);border-color:var(--line)}
+.button.secondary:hover{border-color:var(--accent);color:var(--accent)}
+.glance{background:var(--panel);color:var(--panel-ink);border-radius:2px;padding:30px;position:relative}
+.glance::before{content:"";position:absolute;top:0;left:30px;width:50px;height:2px;background:var(--gold)}
+.glance h2{font-size:.88rem;font-weight:700;margin-bottom:6px}
+.glance dl{margin:0}
+.glance dl div{display:grid;grid-template-columns:84px minmax(0,1fr);gap:12px;border-top:1px solid color-mix(in srgb,var(--panel-ink) 16%,transparent);padding:11px 0}
+.glance dt{font:500 .63rem var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--panel-muted);padding-top:3px}
+.glance dd{margin:0;font-size:.82rem;line-height:1.5}
+.cred{display:grid;grid-template-columns:64px minmax(0,1fr);gap:14px;align-items:center;margin-top:14px;padding-top:14px;border-top:1px solid color-mix(in srgb,var(--panel-ink) 16%,transparent)}
+.cred img{width:64px;height:64px;border-radius:6px;background:#fff}
+.cred b{display:block;font-size:.84rem;font-weight:600}
+.cred span{display:block;font-size:.74rem;color:var(--panel-muted);line-height:1.5}
+.cred a{color:#d8c28e;font:500 .7rem var(--mono);letter-spacing:.04em;text-decoration:none}
+.cred a:hover{text-decoration:underline}
+.cred.sm{grid-template-columns:44px minmax(0,1fr);margin-top:10px;padding-top:10px}
+.cred.sm img{width:44px;height:44px}
+.proof a{text-decoration:none;color:inherit;display:block}
+.proof a:hover span{color:var(--accent)}
+.proof .b{display:flex;align-items:center;gap:10px}
+.proof .b img{width:34px;height:34px;border-radius:4px;background:#fff;border:1px solid var(--line)}
+.glance .copy{margin-top:10px;font:500 .72rem var(--mono);letter-spacing:.04em;background:transparent;color:var(--panel-muted);border:1px solid color-mix(in srgb,var(--panel-ink) 25%,transparent);border-radius:2px;padding:6px 10px;cursor:pointer}
+.glance .copy:hover{color:var(--panel-ink)}
+.proof{border-top:1px solid var(--line);border-bottom:1px solid var(--line);display:grid;grid-template-columns:repeat(4,minmax(0,1fr));padding-block:22px}
+.proof div{padding:4px 22px;border-left:1px solid var(--line);min-width:0}
+.proof div:first-child{border-left:0;padding-left:0}
+.proof strong{display:block;font-weight:600;font-size:1.55rem;letter-spacing:-.05em;line-height:1.2;font-variant-numeric:tabular-nums}
+.proof span{display:block;color:var(--muted);font-size:.74rem;line-height:1.5;margin-top:4px}
+@media (max-width:620px){.proof{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:18px}.proof div:nth-child(3){border-left:0;padding-left:0}.proof div{padding-inline:12px}}
+
+/* section */
+.section{padding-block:84px}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:30px}
+.section-head h2{font-weight:600;font-size:clamp(1.8rem,3vw,2.5rem);line-height:1.1;letter-spacing:-.045em;margin-top:6px}
+.section-head p{max-width:440px;color:var(--muted);font-size:.88rem}
+@media (max-width:820px){.section-head{display:block}.section-head p{margin-top:12px}.section{padding-block:60px}}
+.tint{background:color-mix(in srgb,var(--accent) 6%,var(--paper))}
+
+/* projects */
+.projects{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+@media (max-width:820px){.projects{grid-template-columns:1fr}}
+.project{background:var(--surface);border:1px solid var(--line);border-radius:2px;display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);min-height:270px;transition:border-color .2s,opacity .2s,box-shadow .2s}
+.project.feature,.project.wide{grid-column:1/-1}
+.project.feature{grid-template-columns:minmax(0,1fr) minmax(0,1fr);min-height:380px}
+.project.text{grid-template-columns:1fr}
+.project.dim{opacity:.38}.project.lit{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}
+@media (max-width:820px){.project,.project.feature{grid-template-columns:1fr}}
+.project figure{margin:0;position:relative;overflow:hidden;background:var(--raised);min-height:230px}
+.project figure img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.85)}
+.project.feature figure img{object-position:center 45%}
+.project figure.contain{background:#fff}
+.project figure.contain img{object-fit:contain;padding:16px 16px 40px;filter:none}
+.note{position:absolute;left:12px;bottom:12px;background:rgba(27,39,49,.88);color:#fff;padding:5px 9px;font:400 .62rem var(--mono);letter-spacing:.04em;z-index:2}
+.pin{position:absolute;z-index:3;width:24px;height:24px;margin:-12px 0 0 -12px;border-radius:50%;border:1.5px solid #fff;background:var(--gold);color:#1b2731;font:600 .68rem var(--mono);cursor:pointer;box-shadow:0 1px 6px rgba(0,0,0,.35);transition:transform .15s}
+.pin:hover,.pin[aria-expanded="true"]{transform:scale(1.15)}
+.pin-cap{position:absolute;left:12px;right:12px;top:12px;z-index:2;background:rgba(27,39,49,.92);color:#eef2f4;padding:10px 12px;font-size:.78rem;line-height:1.5}
+.pin-cap b{display:block;font:500 .62rem var(--mono);letter-spacing:.1em;text-transform:uppercase;color:#d8c28e;margin-bottom:2px}
+.pcopy{padding:26px 25px;display:flex;flex-direction:column;align-items:flex-start;gap:10px;min-width:0}
+.meta{font:500 .61rem var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.project h3{font-weight:600;font-size:1.12rem;line-height:1.32;letter-spacing:-.025em}
+.project.feature h3{font-size:1.35rem}
+.project p{font-size:.82rem;line-height:1.65;color:var(--muted)}
+.project ul{list-style:none;padding:0;margin:0;display:grid;gap:5px}
+.project li{font-size:.76rem;line-height:1.55;padding-left:14px;position:relative}
+.project li::before{content:"•";position:absolute;left:0;color:var(--gold)}
+.tags{display:flex;flex-wrap:wrap;gap:5px}
+.tags span{font:400 .61rem var(--mono);padding:4px 7px;background:var(--raised);color:var(--muted);border-radius:1px}
+.more{margin-top:auto;background:none;border:0;padding:4px 0 0;font-weight:600;font-size:.78rem;color:var(--accent);cursor:pointer;letter-spacing:.02em}
+.more:hover{text-decoration:underline}
+.callout{margin-top:18px;padding:16px 20px;border-left:2px solid var(--gold);background:var(--raised);color:var(--muted);font-size:.82rem}
+.callout b{color:var(--ink)}
+
+/* models */
+.tabs{display:flex;flex-wrap:wrap;gap:0;border-bottom:1px solid var(--line);margin-bottom:18px}
+.tabs button{background:none;border:0;border-bottom:2px solid transparent;padding:10px 16px 12px;text-align:left;cursor:pointer;display:grid;gap:1px;margin-bottom:-1px}
+.tabs b{font-weight:600;font-size:.88rem}
+.tabs small{font:400 .62rem var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.tabs button[aria-selected="true"]{border-bottom-color:var(--gold)}
+.tabs button[aria-selected="true"] b{color:var(--accent)}
+.lab{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:18px;align-items:start}
+@media (max-width:900px){.lab{grid-template-columns:1fr}}
+.stage{background:var(--surface);border:1px solid var(--line);border-radius:2px;overflow:hidden;min-width:0}
+.stage .view{position:relative;background:var(--raised)}
+.stage canvas,.stage svg{display:block;width:100%;height:auto;max-width:100%}
+.controls{display:grid;gap:10px;padding:16px 18px;border-top:1px solid var(--line)}
+.ctl{display:grid;grid-template-columns:130px minmax(0,1fr) 92px;gap:12px;align-items:center;font-size:.8rem}
+.ctl label{font-weight:600}
+.ctl output{font:400 .74rem var(--mono);text-align:right;font-variant-numeric:tabular-nums}
+@media (max-width:560px){.ctl{grid-template-columns:minmax(0,1fr) 80px}.ctl label{grid-column:1/-1}}
+.seg{display:inline-flex;gap:4px;flex-wrap:wrap}
+.seg button{font-size:.74rem;font-weight:600;padding:5px 10px;border-radius:2px;border:1px solid var(--line);background:var(--surface);cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.readout{display:grid;grid-template-columns:repeat(auto-fit,minmax(118px,1fr));gap:8px}
+.ro{border:1px solid var(--line);border-radius:2px;padding:8px 10px;min-width:0;background:var(--surface)}
+.ro b{display:block;font:500 .9rem var(--mono);font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.ro span{font:400 .6rem var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+.ro.ok b{color:var(--good)}.ro.warn b{color:var(--warn)}.ro.bad b{color:var(--bad)}
+.side{display:grid;gap:14px;min-width:0}
+.explain{background:var(--surface);border:1px solid var(--line);border-radius:2px;padding:22px;display:grid;gap:12px}
+.explain h3{font-weight:600;font-size:1.1rem;letter-spacing:-.02em}
+.explain p{color:var(--muted);font-size:.84rem}
+.part-info{border-left:2px solid var(--gold);padding:4px 0 4px 12px;font-size:.82rem;min-height:3.2em}
+.part-info b{display:block;font:500 .62rem var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:2px}
+.proves ul{margin:6px 0 0;padding:0;list-style:none;display:grid;gap:5px}
+.proves li{font-size:.8rem;padding-left:14px;position:relative}
+.proves li::before{content:"•";position:absolute;left:0;color:var(--gold)}
+.thumbs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+.thumbs button{padding:0;border:1px solid var(--line);border-radius:2px;overflow:hidden;cursor:zoom-in;aspect-ratio:4/3;max-width:100%;background:var(--raised)}
+.thumbs img{width:100%;height:100%;object-fit:cover}
+
+/* role mapping */
+.fit{display:grid;grid-template-columns:250px minmax(0,1fr);gap:18px}
+@media (max-width:860px){.fit{grid-template-columns:1fr}}
+.roles{display:grid;gap:0;align-content:start;border:1px solid var(--line);border-radius:2px;background:var(--surface)}
+@media (max-width:860px){.roles{grid-auto-flow:column;grid-auto-columns:max-content;overflow-x:auto}}
+.role{text-align:left;background:none;border:0;border-left:2px solid transparent;border-bottom:1px solid var(--line);padding:12px 16px;cursor:pointer;display:grid;gap:1px}
+.role:last-child{border-bottom:0}
+.role b{font-weight:600;font-size:.86rem}
+.role span{font-size:.72rem;color:var(--muted)}
+.role[aria-pressed="true"]{border-left-color:var(--gold);background:var(--raised)}
+.role[aria-pressed="true"] b{color:var(--accent)}
+.fitpanel{background:var(--surface);border:1px solid var(--line);border-radius:2px;min-width:0}
+.fp-head{padding:18px 22px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:baseline}
+.fp-head h3{font-weight:600;font-size:1.15rem;letter-spacing:-.02em}
+.fp-head span{font:400 .68rem var(--mono);color:var(--muted)}
+.reqs{list-style:none;margin:0;padding:0}
+.req{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:16px;padding:14px 22px;border-bottom:1px solid var(--line)}
+.req:last-child{border-bottom:0}
+.req .need{font-weight:600;font-size:.84rem}
+.req .ev{color:var(--muted);font-size:.82rem}
+.req .ev button{background:none;border:0;padding:0;margin:4px 12px 0 0;font:500 .68rem var(--mono);color:var(--accent);cursor:pointer;letter-spacing:.03em}
+.req .ev button:hover{text-decoration:underline}
+@media (max-width:640px){.req{grid-template-columns:1fr;gap:4px}}
+
+/* approach */
+.flow{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.step{background:none;border:0;border-left:1px solid var(--line);padding:16px 12px;text-align:left;cursor:pointer;display:grid;gap:4px;align-content:start;min-width:0}
+.step:first-child{border-left:0;padding-left:0}
+.step .n{font:400 .62rem var(--mono);color:var(--gold)}
+.step b{font-weight:600;font-size:.82rem;line-height:1.3}
+.step[aria-pressed="true"] b{color:var(--accent)}
+@media (max-width:980px){.flow{grid-template-columns:repeat(4,minmax(0,1fr))}.step:nth-child(5){border-left:0;padding-left:0}.step:nth-child(n+5){border-top:1px solid var(--line)}}
+@media (max-width:520px){.flow{grid-template-columns:repeat(2,minmax(0,1fr))}.step:nth-child(odd){border-left:0;padding-left:0}.step:nth-child(n+3){border-top:1px solid var(--line)}}
+.flow-note{margin-top:12px;color:var(--muted);font-size:.84rem;min-height:2.8em}
+.flow-note b{color:var(--ink)}
+
+/* career */
+.exp{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.8fr);gap:60px}
+@media (max-width:900px){.exp{grid-template-columns:1fr;gap:30px}}
+.job{display:grid;grid-template-columns:118px minmax(0,1fr);gap:18px;padding:20px 0;border-top:1px solid var(--line)}
+.job:first-child{border-top:0;padding-top:0}
+.date{font:400 .68rem var(--mono);color:var(--accent);padding-top:3px}
+.job h3{font-weight:600;font-size:1rem;letter-spacing:-.015em;margin-bottom:2px}
+.job .org{font-size:.78rem;color:var(--muted);display:block;margin-bottom:7px}
+.job p{font-size:.83rem;color:var(--muted)}
+@media (max-width:520px){.job{grid-template-columns:1fr;gap:3px}}
+.sub-h{font-weight:600;font-size:.9rem;margin:28px 0 4px;padding-top:20px;border-top:1px solid var(--line)}
+.minor{display:grid;gap:0}
+.minor div{display:grid;grid-template-columns:118px minmax(0,1fr);gap:18px;padding:9px 0;border-top:1px solid var(--line);font-size:.8rem}
+.minor div:first-child{border-top:0}
+.minor .date{padding-top:2px}
+.minor span:last-child{color:var(--muted)}
+.minor b{color:var(--ink);font-weight:600}
+@media (max-width:520px){.minor div{grid-template-columns:1fr;gap:2px}}
+.aside{display:grid;gap:18px;align-content:start}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:2px;padding:23px}
+.card h3{font-weight:600;font-size:.95rem;margin-bottom:12px}
+.edu{padding:11px 0;border-top:1px solid var(--line)}
+.edu:first-of-type{border-top:0;padding-top:0}
+.edu b{display:block;font-weight:600;font-size:.83rem;line-height:1.4}
+.edu span{display:block;color:var(--muted);font-size:.74rem;margin-top:3px}
+.card ul{margin:0;padding-left:16px;color:var(--muted);font-size:.78rem;display:grid;gap:6px}
+.pubs li{line-height:1.45}
+
+/* capabilities */
+.caps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+@media (max-width:860px){.caps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.caps{grid-template-columns:1fr}}
+.cap{background:var(--surface);border:1px solid var(--line);border-radius:2px;padding:20px}
+.cap h3{font-weight:600;font-size:.9rem;margin-bottom:9px}
+.cap p{font-size:.79rem;color:var(--muted);line-height:1.8}
+.small{color:var(--muted);font-size:.72rem;margin-top:14px}
+
+/* contact */
+.contact{background:var(--band);color:#eef2f4;padding-block:64px}
+.contact .wrap{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:45px;align-items:center}
+@media (max-width:820px){.contact .wrap{grid-template-columns:1fr;gap:24px}}
+.contact .label{color:#d8c28e}
+.contact h2{font-weight:600;font-size:clamp(2rem,4vw,3.3rem);line-height:1.06;letter-spacing:-.045em;margin:8px 0 13px}
+.contact p{color:#c9d5dc;max-width:52ch}
+.clinks{display:grid;gap:4px}
+.clinks div{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;align-items:center;border-bottom:1px solid rgba(255,255,255,.25);padding:9px 0;font-size:.86rem}
+.clinks a{color:#fff;text-decoration:none;overflow-wrap:anywhere}
+.clinks a:hover{color:#f3d99e}
+.clinks button{font:500 .66rem var(--mono);background:transparent;color:#c9d5dc;border:1px solid rgba(255,255,255,.3);border-radius:2px;padding:3px 8px;cursor:pointer}
+footer{padding-block:18px;color:var(--muted);font-size:.72rem}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
+
+/* sheet + lightbox */
+.sheet-wrap{position:fixed;inset:0;z-index:60;background:rgba(17,24,30,.55);display:grid;place-items:center;
+  padding:calc(16px + env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) calc(16px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+.sheet{background:var(--surface);border:1px solid var(--line);border-radius:2px;width:min(900px,100%);max-height:100%;overflow:auto}
+.sheet header{position:sticky;top:0;z-index:1;background:var(--surface);padding:20px 24px 16px;border-bottom:1px solid var(--line);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 16px}
+.sheet h3{font-weight:600;font-size:clamp(1.3rem,3vw,1.8rem);letter-spacing:-.03em;line-height:1.2;margin-top:4px}
+.close{font:500 .72rem var(--mono);border:1px solid var(--line);background:var(--surface);border-radius:2px;padding:6px 11px;cursor:pointer;align-self:start}
+.sb{padding:20px 24px 28px;display:grid;gap:24px}
+.sb .summary{font-size:.95rem;line-height:1.7}
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+.gallery button{padding:0;border:1px solid var(--line);border-radius:2px;overflow:hidden;background:var(--raised);aspect-ratio:4/3;cursor:zoom-in;max-width:100%}
+.gallery img{width:100%;height:100%;object-fit:cover}
+.dwgs{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px}
+.dwgs button{display:flex;flex-direction:column;text-align:left;padding:0;border:1px solid var(--line);border-radius:2px;background:var(--raised);cursor:zoom-in;overflow:hidden;color:inherit;font:inherit}
+.dwgs button:hover{border-color:var(--gold)}
+.dwgs img{width:100%;aspect-ratio:1.414;object-fit:contain;background:#fff;border-bottom:1px solid var(--line)}
+.dwgs .dn{font:500 .66rem var(--mono);letter-spacing:.06em;color:var(--gold);padding:9px 11px 0}
+.dwgs b{font-size:.84rem;font-weight:600;padding:2px 11px 0}
+.dwgs .dd{font-size:.74rem;color:var(--muted);line-height:1.45;padding:3px 11px 11px}
+.sb .dnote{font-size:.8rem;color:var(--muted);margin:-4px 0 12px}
+.lb.dwg img{max-width:calc(100vw - 40px);background:#fff}
+.lb a{color:#d8c28e;font:500 .74rem var(--mono);margin-left:10px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.kpi{padding:12px 14px;border-left:1px solid var(--line)}
+.kpi:first-child{border-left:0;padding-left:0}
+.kpi b{display:block;font-weight:600;font-size:1.3rem;letter-spacing:-.04em}
+.kpi span{font-size:.72rem;color:var(--muted)}
+.cols{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px}
+@media (max-width:700px){.cols{grid-template-columns:1fr}}
+.sb h4{font:500 .64rem var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+.sb ul{margin:0;padding-left:16px;display:grid;gap:6px;font-size:.84rem}
+.sb .credit{font-size:.82rem;padding:10px 14px;border-left:2px solid var(--gold);background:var(--raised)}
+.discuss{padding:14px 16px;background:var(--raised);font-size:.84rem;border-left:2px solid var(--accent)}
+.lb{position:fixed;inset:0;z-index:70;background:rgba(8,12,16,.92);display:grid;place-content:center;padding:20px;cursor:zoom-out;margin:0}
+.lb img{max-width:min(1100px,calc(100vw - 40px));max-height:82vh;width:auto;height:auto;object-fit:contain}
+.lb figcaption{color:#e4e9ec;font-size:.84rem;margin-top:10px;text-align:center}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--paper);padding:9px 16px;border-radius:2px;font-size:.82rem;z-index:80}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.pin,.project{transition:none}}
+</style>
+
+<nav class="top gut" aria-label="Main navigation"><div class="wrap">
+  <a class="brand" href="#home">HIRAN MALADENIGE</a>
+  <div class="nav"><a href="#work" class="keep">Selected work</a><a href="#models">Engineering models</a><a href="#roles-sec">Role mapping</a><a href="#experience">Experience</a><a class="cta" href="#contact">Contact</a></div>
+</div></nav>
+
+<main>
+<header class="gut" id="home"><div class="wrap">
+  <div class="hero">
+    <div>
+      <div class="label">Kuopio, Finland · open to full-time roles</div>
+      <h1>Hiran Maladenige</h1>
+      <p class="roleline">Product &amp; R&amp;D Engineer · Mechanical design · CSWP</p>
+      <p class="intro">I take products from requirements to working prototype, covering mechanical design, embedded electronics, drawings, costing and risk analysis. I led the 3D design of a 10-product range for Sportdog.lv and built a motorised six-laser research instrument from concept to prototype.</p>
+      <div class="actions"><a class="button" href="#work">Selected work&nbsp;↘</a><a class="button secondary" href="#models">Interactive engineering models</a></div>
+      <div class="reach"><a href="Hiran_Maladenige_CV.pdf" download><b>Download CV (PDF)</b></a><a href="mailto:hiranmaladenige@gmail.com">hiranmaladenige@gmail.com</a><a href="https://www.linkedin.com/in/hiran-maladenige/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></div>
+    </div>
+    <aside class="glance" aria-label="At a glance">
+      <h2>At a glance</h2>
+      <dl>
+        <div><dt>Target roles</dt><dd>Product Engineer · Mechanical Design Engineer · R&amp;D / Prototype Engineer · Medical Device Engineer</dd></div>
+        <div><dt>Strengths</dt><dd>End-to-end NPD, SolidWorks (CSWP), Autodesk Fusion, DFM, FEA, Altium, embedded C++, prototyping</dd></div>
+        <div><dt>Based</dt><dd>Kuopio, Finland · open to roles across Finland</dd></div>
+        <div><dt>Availability</dt><dd>Full-time; doctoral research complete, thesis in writing</dd></div>
+        <div><dt>Education</dt><dd>MSc Applied Physics (UEF) · Engineer, Medical Physical Technologies (RTU) · D.Sc. expected 2027</dd></div>
+        <div><dt>Languages</dt><dd>English (IELTS 8.0) · Sinhala · Finnish (intermediate, near B1)</dd></div>
+      </dl>
+      <div class="creds">
+        <a href="https://cv.virtualtester.com/qr/?b=SLDWRKS&amp;i=C-GDLRE69AFY" target="_blank" rel="noopener noreferrer" aria-label="Verify CSWP credential"><img src="img/cswp_badge.png" alt="SOLIDWORKS Professional badge"><div><b>CSWP</b><span>Professional · 2020</span><i>Verify ↗</i></div></a>
+        <a href="https://cv.virtualtester.com/qr/?b=SLDWRKS&amp;i=C-A3RPKRSD38" target="_blank" rel="noopener noreferrer" aria-label="Verify CSWA credential"><img src="img/cswa_badge.png" alt="SOLIDWORKS Associate badge"><div><b>CSWA</b><span>Associate · 2018</span><i>Verify ↗</i></div></a>
+      </div>
+      <button class="copy" id="copykw">Copy profile summary</button>
+    </aside>
+  </div>
+  <div class="proof" aria-label="Career highlights">
+    <div><strong>13</strong><span>products and devices designed, including a 10-product range at Sportdog</span></div>
+    <div><strong>300+</strong><span>CAD parts and assemblies modelled across industry and engineering projects</span></div>
+    <div><strong>50+</strong><span>engineering drawings produced, from single parts to full assemblies</span></div>
+    <div><a href="https://cv.virtualtester.com/qr/?b=SLDWRKS&amp;i=C-GDLRE69AFY" target="_blank" rel="noopener noreferrer" aria-label="Verify Certified SolidWorks Professional credential"><span class="b"><img src="img/cswp_badge.png" alt=""><strong>CSWP</strong></span><span>Certified SolidWorks Professional · verify ↗</span></a></div>
+  </div>
+</div></header>
+
+<section class="section gut" id="work"><div class="wrap">
+  <div class="section-head"><div><div class="label">Selected work</div><h2>Selected engineering projects.</h2></div><p>Engineering engagements across product development, mechanical systems, manufacturing and medical research. Each case states the scope I owned and the resulting deliverables. Original drawings, reports and design files are available on request.</p></div>
+  <div class="projects" id="grid"></div>
+</div></section>
+
+<section class="section gut tint" id="models"><div class="wrap">
+  <div class="section-head"><div><div class="label">Engineering models</div><h2>Interactive engineering models.</h2></div><p>Built from the original drawings, part numbers and calculations. Adjust the inputs to see how each design responds; select any component for the engineering rationale.</p></div>
+  <div class="tabs" role="tablist" id="labtabs"></div>
+  <div class="lab" id="labroot"></div>
+</div></section>
+
+<section class="section gut" id="roles-sec"><div class="wrap">
+  <div class="section-head"><div><div class="label">Role mapping</div><h2>Experience mapped to role requirements.</h2></div><p>Select a role type to see typical requirements and the project evidence for each. Every reference opens the corresponding case study.</p></div>
+  <div class="fit"><div class="roles" id="roles" role="group" aria-label="Role type"></div><div class="fitpanel" id="fitpanel" aria-live="polite"></div></div>
+</div></section>
+
+<section class="section gut" id="approach" style="padding-top:0"><div class="wrap">
+  <div class="section-head"><div><div class="label">Approach</div><h2>How I take a product from requirement to release.</h2></div><p>The same eight stages recur across the projects. Select a stage to highlight where it is evidenced.</p></div>
+  <div class="flow" id="flow"></div>
+  <p class="flow-note" id="flow-note">Each stage is documented in drawings, reports or code.</p>
+</div></section>
+
+<section class="section gut tint" id="experience"><div class="wrap">
+  <div class="section-head"><div><div class="label">Career</div><h2>From product design to clinical research.</h2></div><p>Industry product engineering in Latvia, followed by applied medical physics research at Kuopio University Hospital.</p></div>
+  <div class="exp">
+    <div>
+      <div>
+        <article class="job"><div class="date">Jun 2024 – present</div><div><h3>D.Sc. Researcher, Radiotherapy Medical Physics</h3><span class="org">Kuopio University Hospital · University of Eastern Finland</span><p>Developing ADDI, a mathematical framework and software for reproducible radiotherapy plan evaluation, using mathematical modelling and deep learning. Validating against expert clinical judgement with the KUH clinical team. Three papers completed.</p></div></article>
+        <article class="job"><div class="date">Feb 2023 – Jun 2024</div><div><h3>Research Aide → Research Assistant → Doctoral Researcher</h3><span class="org">Kuopio University Hospital</span><p>Successive appointments on the radiotherapy research project led by Jan Seppälä and Henri Korkalainen, developing into the doctorate.</p></div></article>
+        <article class="job"><div class="date">Apr – Nov 2022</div><div><h3>Lead 3D Design Engineer</h3><span class="org">Sportdog.lv · Riga, Latvia</span><p>Designed a 10-product QR tag and mount range in two collar sizes, taking concepts through FEA, prototypes, production drawings and client mock-ups.</p></div></article>
+        <article class="job"><div class="date">Feb – Mar 2022</div><div><h3>3D Designer &amp; Data Analyst</h3><span class="org">Demola Latvia · engagement for Sportdog.lv</span><p>3D design and data analysis in a multidisciplinary product and business-model team. The engagement led directly to my appointment at Sportdog.</p></div></article>
+        <article class="job"><div class="date">Sep 2021</div><div><h3>R&amp;D Engineering Trainee</h3><span class="org">SIA Vizulo · LED luminaire manufacturer</span><p>Assembly line, then PCB redesign and testing in Altium and manufacturing documentation within R&amp;D.</p></div></article>
+        <article class="job"><div class="date">Oct 2020 – Jun 2022</div><div><h3>Undergraduate Research Assistant</h3><span class="org">Riga Technical University</span><p>Calibrated and operated the NT-MDT Solver P47 Pro AFM, prepared samples and designed custom equipment for surface-charge experiments.</p></div></article>
+      </div>
+      <h3 class="sub-h">Additional experience</h3>
+      <div class="minor">
+        <div><span class="date">Jan – Jun 2024</span><span><b>Logistics Co-worker (part-time)</b> · IKEA Kuopio · stock flow and warehouse operations</span></div>
+        <div><span class="date">Feb – Jun 2021</span><span><b>Business Innovation</b> · Demola Latvia for Silvanols · 12-week design programme; Demola innovation grant</span></div>
+        <div><span class="date">Jan – Feb 2021</span><span><b>Trainee Medical Physicist</b> · Liepāja Regional Hospital · Eclipse planning, CT QA on GE Discovery RT, radiation safety</span></div>
+        <div><span class="date">Nov 2018 – Mar 2019</span><span><b>Online Travel Consultant</b> · International Travel Network, Riga</span></div>
+      </div>
+    </div>
+    <div class="aside">
+      <div class="card"><h3>Education</h3>
+        <div class="edu"><b>Doctor of Science (D.Sc.), Medical Physics</b><span>University of Eastern Finland · 2024 – 2027 expected · thesis in writing</span></div>
+        <div class="edu"><b>MSc Applied Physics, Medical Physics</b><span>University of Eastern Finland · 2022 – 2024</span></div>
+        <div class="edu"><b>Engineer in Medical Physical Technologies; Professional Bachelor in Medical Physics</b><span>Riga Technical University · Rīga Stradiņš University · 2018 – 2022</span></div>
+        <div class="edu"><b>Pearson Diploma in Software Engineering</b><span>ESOFT Metro Campus · 2017 – 2018</span></div>
+      </div>
+      <div class="card"><h3>Credentials &amp; recognition</h3><ul>
+        <li>Certified SolidWorks Professional, Mechanical Design (CSWP, Sep 2020) · <a href="https://cv.virtualtester.com/qr/?b=SLDWRKS&amp;i=C-GDLRE69AFY" target="_blank" rel="noopener noreferrer">verify ↗</a> · issued as Hiran Gunawardana</li>
+        <li>Certified SolidWorks Associate, Mechanical Design (CSWA, Dec 2018, Riga Technical University) · <a href="https://cv.virtualtester.com/qr/?b=SLDWRKS&amp;i=C-A3RPKRSD38" target="_blank" rel="noopener noreferrer">verify ↗</a></li>
+        <li>Engineering project and bachelor's thesis both graded 10/10</li>
+        <li>Demola innovation grant, RTU Development Fund</li>
+        <li>RTU Golden Fund honoree</li>
+        <li>Second place, Best Poster, Sädehoitopäivät 2026</li>
+        <li>Second place, Best Poster, LFTY 2025</li>
+        <li>Poster highlight, ESTRO 2026</li>
+        <li>Ranked first in Erasmus+ selection</li>
+        <li>Member, LFT · Affiliate member, IPEM</li></ul></div>
+      <div class="card"><h3>Selected publications</h3><ul class="pubs">
+        <li>A comprehensive dose-volume histogram-based index for radiotherapy treatment plan quality evaluation: application to breast cancer radiotherapy</li>
+        <li>Dose-volume histogram-based index for objective assessment of radiotherapy treatment plans: application to breast cancer patients</li>
+        <li>Probing light-induced surface charge kinetics using Kelvin probe force microscopy in a non-imaging mode</li>
+        <li>Influence of visible light excitation on electrical potential kinetics of a-SiO₂ surfaces at micro/nano scale</li></ul></div>
+    </div>
+  </div>
+</div></section>
+
+<section class="section gut" id="skills"><div class="wrap">
+  <div class="section-head"><div><div class="label">Capabilities</div><h2>Engineering capabilities.</h2></div><p>Developed through product delivery, engineering engagements and clinical research.</p></div>
+  <div class="caps">
+    <article class="cap"><h3>Product engineering</h3><p>Requirements · NPD · concept selection · system integration · DFM · BOM costing · technical documentation</p></article>
+    <article class="cap"><h3>Mechanical design</h3><p>SolidWorks (CSWP) · Autodesk Fusion · assemblies and drawings · mechanisms and drives · FEA · tolerances</p></article>
+    <article class="cap"><h3>Electronics &amp; software</h3><p>Altium Designer · Arduino / embedded C++ · Python · MATLAB · motor and sensor integration</p></article>
+    <article class="cap"><h3>Manufacturing</h3><p>CNC process planning · G-code · injection mould design · 3D printing · laser marking · assembly · CMM inspection</p></article>
+    <article class="cap"><h3>Medical &amp; quality</h3><p>ISO 14971 risk analysis · IEC 60601-1 fundamentals · EU MDR · radiotherapy planning · clinical collaboration</p></article>
+    <article class="cap"><h3>Research</h3><p>Mathematical modelling · deep learning for healthcare · experimental design · AFM / KPFM · data analysis · scientific writing</p></article>
+  </div>
+  <p class="small">Standards knowledge is based on applied engineering and medical-device project work.</p>
+</div></section>
+</main>
+
+<section class="contact gut" id="contact"><div class="wrap">
+  <div><div class="label">Next step</div><h2>Let's talk about the product you're building.</h2><p>I'm interested in product, mechanical design and R&amp;D roles where I take ownership from requirements through prototyping and validation. Original drawings and design files are available on request.</p></div>
+  <div class="clinks">
+    <div><a href="mailto:hiranmaladenige@gmail.com" id="c-email">hiranmaladenige@gmail.com</a><button data-copy="c-email">Copy</button></div>
+    <div><a href="https://www.linkedin.com/in/hiran-maladenige" target="_blank" rel="noopener noreferrer" id="c-li">linkedin.com/in/hiran-maladenige ↗</a><button data-copy="c-li">Copy</button></div>
+    <div><a href="Hiran_Maladenige_CV.pdf" download>Download CV (PDF) ↓</a><span></span></div>
+    <div><span>Kuopio, Finland</span><span></span></div>
+  </div>
+</div></section>
+<footer class="gut"><div class="wrap"><span>© 2026 Hiran Maladenige</span><span>Product engineering · research instrumentation · working prototypes</span></div></footer>
+
+<div class="sheet-wrap" id="sheetwrap" hidden><article class="sheet" role="dialog" aria-modal="true" aria-labelledby="sh-title" id="sheet"></article></div>
+<figure class="lb" id="lb" hidden><img id="lb-img" alt=""><figcaption><span id="lb-cap"></span><a id="lb-full" target="_blank" rel="noopener" hidden>Open full size ↗</a></figcaption></figure>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+/* ---------- data ---------- */
+const IMG=p=>"img/"+p+".jpg";
+const HOT=[
+ ["Rotating laser carriage · IP027.01.230","Six Ø8 mm lasers on a 90-tooth spur gear. I designed the carriage, chose the SKF 608 bearing and sized the gear pair so one stepper step moves the carriage 0.44°."],
+ ["NEMA 8 stepper + 22T pinion","Drives the carriage through a 22:90 reduction. Driven by an A4988 on my custom Arduino shield; the firmware homes it with a momentary switch."],
+ ["Servo shutter + light-valve module","SG90 servo blocks the beam; a liquid-crystal light valve and 1:4 beam splitter let a photodiode measure output while the valve dims it. This is the closed loop."],
+ ["15-pin D-Sub to the control box","All lasers, motors and sensors leave through one connector to the control box with LCD, rotary encoder and SD logging."],
+ ["Base with pogo-pin contacts","Spring pins carry power to whichever laser is in position, so the carriage can rotate without wires wrapping."]
+];
+const PROJ={
+ P1:{feat:true,top:true,cat:["mech","elec","mfg"],role:"Solo · engineering project",title:"Multi-laser light source for an atomic force microscope",short:"Six lasers on a motorised carriage with closed-loop intensity control. Designed, built and documented from spec to working prototype.",
+  img:"laser_render2",when:"2021 – 2022",org:"Riga Technical University",tags:["SolidWorks","Altium","Arduino C++","DFM","BOM","Risk analysis"],
+drawings:[["dwg6","IP.027.01.000","Laser module assembly","Sectioned assembly with full parts list: carriage, gear train, bearings, shutter, light valve and photodiode"],["dwg1","IP.027.000.00.VS","Concept comparison","Three design versions scored against 18 weighted criteria"],["dwg2","IP.027.00.000.Fs","Functional schematic","Signal, power and control flow from laser diodes to the fibre output"],["dwg3","IP.027.00.000.E2","Electrical schematic","Control circuit: microcontroller, stepper driver, regulators, sensors and display"],["dwg4","IP.027.000.00.SA","PCB assembly guide","Two-layer control board, top and bottom copper, with component list"],["dwg7","IP.027.01.200","Laser mount module","Six-laser mount in sections and details"],["dwg10","IP.027.02.400.M.C","Injection mould cavity","Mould cavity for the display module housing"],["dwg11","IP.027.02.400","CNC operation plan","Machining operations and set-ups for the display module part"]],
+  gallery:[["laser_render","Carriage, stepper, shutter and light-valve module"],["laser_render3","Control box with 20×4 LCD and rotary encoder"],["laser_pcb","My Arduino control shield in Altium, 3D view and component layout: A4988 stepper driver, two LM317T regulators, SD, LCD, servo, sensor and encoder connectors"],["laser_fiber","Fibre holder and multi-laser holder renders"],["laser_v1","Version 1: single laser, manual shutter, scored 10.1"],["laser_v2","Version 2: six lasers, manual interchange, scored 12.3"],["laser_total","Total assembly drawing"],["laser_gear","Gear and carriage drawing"]],
+  summary:"Researchers needed several visible wavelengths during Kelvin probe microscopy without swapping lasers by hand. I designed a compact device that holds six lasers on a motorised carriage, measures and controls their output in real time and logs the data.",
+  kpis:[["100+","parts"],["3","versions scored"],["6","firmware iterations"],["€486","main BOM"],["12","A1 drawing sheets"]],
+  did:["Wrote 8 product requirements and a technical task per module","Designed three versions; chose one with a 20-criterion weighted matrix","Stepper-driven 6-slot carriage with spur gears and SKF bearings, servo shutter, light-valve dimming with photodiode feedback","Custom Arduino shield in Altium with stepper and laser drivers","Firmware with menu UI, encoder control and SD-card logging"],
+  result:["Thermal calculation showed no external heatsink was needed","Injection mould and milling plan for one housing part","Priced BOM with part-numbering scheme","Risk assessment with mitigations","Working prototype used in experiments; defended 10/10"],
+  ask:"How I traded off simplicity against automation across the three versions, and why the scoring picked the most complex one."},
+ P6:{top:true,cat:["mech","ind"],industry:true,role:"Lead 3D design engineer",title:"Dog-collar QR tag product range",short:"Ten badges, clips and mounts in two collar sizes, from concept variants to printable prototypes.",
+  img:"sd_real3",when:"2022",org:"Sportdog.lv · Riga",tags:["SolidWorks","FEA","3D printing","Laser marking"],
+  gallery:[["sd_real2","Round badge on a leather collar, client mock-up"],["sd_real3","Round badge on webbing, with mount clip"],["sd_p5l","Rectangular clip with laser-engraved QR"],["sd_p5r","Same clip with reflective printed QR"],["sd_p4b","Product 04: front plate, transparent cover, back mount"],["sd_p8","Product 08 in 30 mm and 50 mm versions"],["sd_p9","Product 09 mounts, both sizes"],["sd_p3","Product 03 front and back"]],
+  summary:"Sportdog wanted collar accessories carrying a QR identity tag. I first worked on it in a Demola Latvia team set up at Sportdog's request, then joined Sportdog as lead 3D design engineer. I designed the full range as one product family, compared options with the client and prepared everything for prototyping and marking.",
+  kpis:[["10","products"],["30 / 50 mm","collar sizes"],["~3 months","design sprint"]],
+  did:["Designed badges, clips and mounts as a family in 30 mm and 50 mm versions","Put fit limits on drawings (max collar width and thickness)","Compared laser-engraved vs reflective QR and screw-nut vs zip-tie fastening"],
+  result:["Static FEA on clip parts","Iterated STL files for printed prototypes","DXF/DWG artwork for laser marking","Drawings with parts lists and photo-realistic client mock-ups"],
+  ask:"How I kept ten products consistent as one family while sizing each for two collar widths."},
+ P2:{top:true,cat:["mech","elec","med"],role:"Team project · tabletop owner",title:"Surgical operating table redesign",short:"Motorised tabletop sections for a 500 kg load with an X-ray-clear zone and ISO 14971 risk analysis.",
+  img:"ot1",when:"2021",org:"Riga Technical University",tags:["Actuator sizing","FEA","ISO 14971","IEC 60601-1"],
+  gallery:[["ot1","Table in flex position, lifting column and base"],["ot2","Leg rests split and lowered"],["ot3","Backrest raised to sitting position"],["ot4","Trendelenburg tilt"],["ot5","Reverse Trendelenburg"],["ot_tilt","Lateral tilt ±30° at the universal joint"]],
+  summary:"Our team redesigned an operating table to cover more clinical positions. I owned the tabletop: backrest and leg-rest actuation, component selection, wiring, simulation and risk.",
+  kpis:[["20","justified spec parameters"],["92%","worst-case actuator load"],["550 kg","FEA load case"]],
+  did:["Justified each spec parameter from body-size data, clinical positions and standards","Calculated actuator force over each section's full angle range","Two synchronised actuators per section to keep the X-ray zone clear and halve load","Selected actuators, control box and Li-ion battery from trade-off tables"],
+  result:["Worst cases at 70%, 78% and 92% of rating","SolidWorks static studies on seat, base and tabletop","Risk analysis per ISO 14971 with safety measures","Cleaning and service procedures"],
+  ask:"Why two smaller actuators beat one large one here, and what that did to cost and imaging."},
+ P8:{cat:["research","soft","med"],role:"Doctoral researcher",title:"ADDI: objective radiotherapy plan evaluation",short:"A framework and software that make breast radiotherapy plan comparison reproducible.",
+  img:null,big:"3",bigl:"papers completed",when:"2024 – 2027",org:"Kuopio University Hospital",tags:["Python","Medical physics","Software"],gallery:[],
+  summary:"Plan evaluation in radiotherapy varies between physicists. I developed the Advanced Dose Distribution Index (ADDI) to score treatment plans objectively and reproducibly, working with the clinical team at Kuopio University Hospital.",
+  kpis:[["3","papers completed"],["2nd","best poster 2026"],["ESTRO","2026 highlight"]],
+  did:["Defined the evaluation framework and built it as software","Studied inter-physicist variability in plan evaluation"],
+  result:["Three papers completed; defence expected 2027","Presented at ESTRO 2026 and national radiotherapy days"],
+  ask:"How I worked with clinical physicists to turn a judgement call into a reproducible number."},
+ P7:{cat:["mech"],role:"Design engineer · colleague's project",title:"Motorised fibre positioner for an AFM",short:"Three-motion micro-positioning with 0.025 mm steps from vendor motors, gears and miniature bearings.",
+  img:"afm_pos1",when:"2022",org:"Riga Technical University",tags:["Mechanisms","Motor selection","BOM"],credit:"A classmate's engineering project. I did the mechanical design, engineering planning and drawings; the report and defence were hers.",gallery:[["afm_pos1","Positioner assembly: base housing, linear slide, gear-reduced tilt stage and fibre arm"],["afm_pos3","Rear view: carriage on twin guide rods, tilt stage and fibre arm"],["afm_pos4","Fibre arm rotated through its tilt range"],["afm_pos5","Fibre arm at the opposite end of its travel"],["afm_pos2","Front view: small pinion driving the tilt gear above the slide carriage"]],
+  summary:"A hand-adjusted fibre holder made light delivery onto AFM samples unreliable. The motorised replacement positions the fibre end in three motions.",
+  kpis:[["0.025 mm","linear step"],["3.6°","tilt per motor turn"],["€66.86","prototype BOM"]],
+  did:["Linear stepper slide, servo axis and gear-reduced fibre tilt","Scored three linear steppers on pitch, price, mass and fit","Six custom parts plus SKF and MR74 bearings and ISO fasteners"],
+  result:["Parts list with part numbers and priced BOM","ABS 3D-printing process plan with quality checks"],
+  ask:"Designing as the engineer for someone else's requirements, much like working with a product manager."},
+ P3:{cat:["mfg"],role:"Manufacturing study project",title:"CNC parts for a laser aiming fixture",short:"Process charts, cutting data, G-code and a CMM inspection plan for aluminium parts.",
+  img:"cnc_face",when:"2021",org:"Riga Technical University",tags:["CNC","Feeds & speeds","CMM"],gallery:[["cnc_face","Face milling toolpath on the 76×38 mm stock"],["cnc_cmm","Coordinate measuring machine used for the inspection plan"],["cnc_wg","Waveguide holder part"]],
+  summary:"Planned the full machining route for the parts of my thesis fixture on a desktop CNC.",
+  kpis:[["3","process charts"],["4","milling operations"],["CMM","inspection plan"]],
+  did:["Process chart per part: stock, tools, RPM, feed, surface speed, chip load","Face, pocket, slot and contour milling plus drilling","Generated G-code"],
+  result:["Inspection documentation and a CMM quality plan","Top course marks, which earned the Vizulo internship"],
+  ask:"How I chose tooling and speeds for small aluminium parts on a desktop machine."},
+ P4:{cat:["elec","mfg","ind"],industry:true,role:"R&D engineering trainee",title:"PCB redesign at an LED luminaire maker",short:"Assembly line first, then Altium PCB updates and manufacturing documents in R&D.",
+  img:"viz2",when:"2021",org:"SIA Vizulo",tags:["Altium","Assembly","Documentation"],gallery:[["viz1","LED boards on the line"],["viz2","Luminaire assembly with drivers and lens arrays"],["viz3","Assembly stations"],["viz4","Finished luminaires"]],
+  summary:"I arranged this internship for our student group: one week on the assembly line, one week assisting the lead PCB designer.",
+  kpis:[["6","PCB tasks"],["43","export countries"],["2","departments"]],
+  did:["Assembled luminaires, drilled and tapped housings, wired power units","Updated PCBs to new company standards and designed boards for new luminaire shapes"],
+  result:["Documents for the manufacturer, assembly line and customer","Saw SMT, powder coating, CNC punching, bending and welding"],
+  ask:"What the assembly line taught me about designing for the people who build the product."},
+ P5:{cat:["research","mech"],role:"BSc thesis · self-initiated",title:"Light-induced surface charge on silica",short:"Research with a custom 3D-printed laser fixture on an atomic force microscope.",
+  img:"laser_fiber",when:"2021 – 2022",org:"Riga Technical University",tags:["KPFM","Resin printing","Curve fitting"],gallery:[["laser_fiber","Multi-laser holder and fibre holder I printed for the AFM"]],
+  summary:"I measured how visible light changes the surface potential of amorphous SiO₂ at micro and nano scale, and built the light delivery hardware to do it.",
+  kpis:[["10/10","defence"],["3","wavelengths"],["70","references"]],
+  did:["Designed and resin-printed a light-guide fixture and multi-laser holder","Calibrated and ran the AFM in Kelvin probe mode","Swapped mixed-vendor lasers for a matched set after spotting inconsistent results"],
+  result:["Two-component models of charging and discharging kinetics","Estimated charge leakage distance"],
+  ask:"Spotting a supplier-quality problem in my own data and fixing it by re-sourcing."}
+};
+const ORDER=["P1","P6","P2","P8","P7","P3","P4","P5"];
+const SHORT={P1:"Laser device",P2:"Operating table",P3:"CNC parts",P4:"Vizulo",P5:"AFM thesis",P6:"Sportdog",P7:"AFM positioner",P8:"ADDI"};
+const ROLES=[
+ {t:"Product Engineer",s:"NPD, technical ownership",fit:5,reqs:[["Turn customer needs into technical requirements","8 product requirements; 20 justified spec parameters",["P1","P2"]],["Lead concept selection","Weighted scoring across versions, variant comparisons with a client",["P1","P6","P7"]],["System integration of mechanics, electronics and software","100+ parts in one working device",["P1"]],["Design for manufacture and cost","Mould design, CNC planning, priced BOMs with part numbers",["P1","P3","P7"]],["Testing and validation","Working prototype in experiments; FEA; CMM plan",["P1","P2","P3"]],["Work with production and suppliers","Assembly line work, vendor comparison, re-sourced components",["P4","P5","P1"]]]},
+ {t:"Mechanical Design Engineer",s:"CAD, drawings, FEA",fit:5,reqs:[["Expert 3D CAD","Certified SolidWorks Professional; 10-product range",["P6","P1"]],["Mechanisms and drives","Gear trains, bearings, linear actuators, steppers and servos",["P1","P2","P7"]],["Strength analysis","SolidWorks static FEA up to 550 kg load cases",["P2","P6"]],["Manufacturing drawings and tolerances","Full drawing sets, ±0.05 mm features, parts lists",["P1","P3","P6"]],["Prototype manufacturing","FDM and resin printing, CNC milling, lathe",["P5","P3","P6"]]]},
+ {t:"R&D / Prototype Engineer",s:"Build, test, iterate",fit:5,reqs:[["Rapid prototyping","Printed fixtures, iterated STLs, working lab device",["P5","P6","P1"]],["Electronics and embedded code","Altium PCB, motor and laser drivers, Arduino firmware",["P1","P4"]],["Experiments and measurement","AFM/KPFM experiments, calibration, kinetics fitting",["P5"]],["Engineering calculations","Thermal, power, force-vs-angle, stepper resolution",["P1","P2","P7"]],["Clear technical documentation","110-page engineering report, drawings, manufacturing docs",["P1","P4"]]]},
+ {t:"Medical Device Engineer",s:"Regulated hardware",fit:4,reqs:[["Risk management to ISO 14971","Risk matrix and safety measures on the operating table",["P2"]],["Electrical safety awareness (IEC 60601-1)","24 V architecture chosen for patient safety",["P2"]],["EU MDR and CE routes","RTU coursework on conformity assessment routes by device class",[]],["Clinical collaboration","Doctorate with Kuopio University Hospital physicists",["P8"]],["Medical physics depth","MSc medical physics; trainee medical physicist",["P8"]]]},
+ {t:"Scientific Software / Data",s:"Python, analysis",fit:3,reqs:[["Build scientific software","ADDI framework implemented as software",["P8"]],["Data analysis and modelling","Exponential kinetics fitting, MATLAB, GraphPad",["P5"]],["Embedded and control code","Six firmware iterations with logging",["P1"]]]}
+];
+const STAGES=[["Requirements",["P1","P2","P6"],"Technical tasks and justified specs before any CAD."],["Concept selection",["P1","P6","P7"],"Alternatives built and scored against weighted criteria."],["Calculations",["P1","P2","P7"],"Force, thermal, power and resolution checked by hand."],["CAD & FEA",["P1","P2","P6","P3"],"SolidWorks assemblies, drawing sets and static studies."],["Electronics & code",["P1","P4"],"PCB design, drivers and firmware."],["Prototype",["P1","P5","P6"],"Printed, machined and assembled working prototypes."],["Manufacturing",["P1","P3","P4","P7"],"Process charts, G-code, mould design and print plans."],["Validation & cost",["P1","P2","P3","P8"],"Inspection plans, risk analysis, priced BOMs, evaluation studies."]];
+const KIT=[["Mechanical design",[["SolidWorks (CSWP)",1],["Assemblies & drawings",1],["Mechanisms & drives",1],["FEA",0],["GD&T / tolerances",0],["Sheet metal & weldments",0]]],["Product development",[["NPD",1],["Requirements & specs",1],["Concept selection",1],["DFM",1],["BOM & costing",0],["Prototyping",1]]],["Electronics & code",[["Altium Designer",1],["Embedded C++ (Arduino)",1],["Python",1],["MATLAB",0],["Motor & sensor circuits",0]]],["Manufacturing",[["3D printing (FDM, resin)",1],["CNC process planning",0],["Injection mould design",0],["Assembly & SMT",0],["Laser marking",0]]],["Quality & compliance",[["ISO 14971",0],["IEC 60601-1",0],["EU MDR / CE",0],["CMM inspection",0],["Technical documentation",1]]],["Science",[["Medical physics",1],["Radiotherapy planning",1],["Deep learning for healthcare",0],["AFM / KPFM",0],["Data analysis",1],["Scientific writing",1]]]];
+
+/* ---------- utils ---------- */
+const $=s=>document.querySelector(s);
+const el=(t,a={},h="")=>{const e=document.createElement(t);for(const k in a)e.setAttribute(k,a[k]);e.innerHTML=h;return e};
+const css=v=>getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+function toast(t){const e=$("#toast");e.textContent=t;e.hidden=false;clearTimeout(toast.t);toast.t=setTimeout(()=>e.hidden=true,1600)}
+function copyText(t,node){const sel=()=>{if(!node)return;const r=document.createRange();r.selectNodeContents(node);const s=getSelection();s.removeAllRanges();s.addRange(r);toast("Selected. Press Ctrl+C")};try{navigator.clipboard.writeText(t).then(()=>toast("Copied"),sel)}catch(e){sel()}}
+const lb=$("#lb");function light(src,cap,full){$("#lb-img").src=src;$("#lb-img").alt=cap;$("#lb-cap").textContent=cap;const f=$("#lb-full");f.hidden=!full;if(full)f.href=full;lb.classList.toggle("dwg",!!full);lb.hidden=false}
+lb.onclick=()=>lb.hidden=true;
+const S="http://www.w3.org/2000/svg";
+function svg(w,h){const s=document.createElementNS(S,"svg");s.setAttribute("viewBox",`0 0 ${w} ${h}`);s.setAttribute("role","img");return s}
+function sv(tag,attrs,parent){const e=document.createElementNS(S,tag);for(const k in attrs)e.setAttribute(k,attrs[k]);if(parent)parent.appendChild(e);return e}
+function raf(fn){let on=true,id;const loop=()=>{if(!on)return;fn();id=requestAnimationFrame(loop)};id=requestAnimationFrame(loop);return ()=>{on=false;cancelAnimationFrame(id)}}
+function onTheme(fn){const mq=matchMedia("(prefers-color-scheme: dark)");mq.addEventListener("change",fn);const mo=new MutationObserver(fn);mo.observe(document.documentElement,{attributes:true,attributeFilter:["data-theme"]});return ()=>{mq.removeEventListener("change",fn);mo.disconnect()}}
+
+/* ---------- lab framework ---------- */
+function frame(root,{title,why,proves,thumbs}){
+  const stage=el("div",{class:"stage"});const view=el("div",{class:"view"});stage.appendChild(view);
+  const ctl=el("div",{class:"controls"});stage.appendChild(ctl);
+  const side=el("div",{class:"side"});
+  const ex=el("div",{class:"explain"},`<span class="label">Model</span><h3>${title}</h3><p>${why}</p><div class="part-info"><b>Select a component</b>Hover or tap any part of the model for the design rationale.</div><div class="proves"><span class="label">Engineering demonstrated</span><ul>${proves.map(p=>`<li>${p}</li>`).join("")}</ul></div>`);
+  side.appendChild(ex);
+  if(thumbs&&thumbs.length){const t=el("div",{class:"explain"},`<span class="label">Original renders</span>`);const g=el("div",{class:"thumbs"});thumbs.forEach(([n,c])=>{const b=el("button",{title:c,"aria-label":c},`<img src="${IMG(n)}" alt="${c}" loading="lazy">`);b.onclick=()=>light(IMG(n),c);g.appendChild(b)});t.appendChild(g);side.appendChild(t)}
+  root.append(stage,side);return {view,ctl,info:ex.querySelector(".part-info")}
+}
+function slider(ctl,{label,min,max,step=1,value,unit="",fmt=v=>v+unit,onInput}){const w=el("div",{class:"ctl"});const id="s"+Math.random().toString(36).slice(2,7);w.innerHTML=`<label for="${id}">${label}</label><input type="range" id="${id}" min="${min}" max="${max}" step="${step}" value="${value}"><output for="${id}">${fmt(value)}</output>`;const i=w.querySelector("input"),o=w.querySelector("output");i.oninput=()=>{o.textContent=fmt(+i.value);onInput(+i.value)};ctl.appendChild(w);return i}
+function segctl(ctl,label,opts,value,onPick){const w=el("div",{class:"ctl"});w.innerHTML=`<label>${label}</label><div class="seg"></div><span></span>`;const s=w.querySelector(".seg");opts.forEach(([v,l])=>{const b=el("button",{"aria-pressed":v===value},l);b.onclick=()=>{s.querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed","false"));b.setAttribute("aria-pressed","true");onPick(v)};s.appendChild(b)});ctl.appendChild(w);return s}
+function readouts(ctl,defs){const r=el("div",{class:"readout"});const map={};defs.forEach(([k,l])=>{const d=el("div",{class:"ro"},`<b>–</b><span>${l}</span>`);map[k]=d;r.appendChild(d)});ctl.appendChild(r);return (k,v,state)=>{map[k].querySelector("b").textContent=v;map[k].className="ro"+(state?" "+state:"")}}
+function hot(container,info,parts){container.querySelectorAll("[data-part]").forEach(g=>{g.style.cursor="pointer";g.setAttribute("tabindex",0);const show=()=>{const [t,d]=parts[g.dataset.part];info.innerHTML=`<b>${t}</b>${d}`};g.addEventListener("mouseenter",show);g.addEventListener("click",show);g.addEventListener("focus",show)})}
+
+const LAB=[
+ {id:"laser",t:"Laser device",s:"Closed-loop light source",build:buildLaser},
+ {id:"table",t:"Operating table",s:"Actuator sizing",build:buildTable},
+ {id:"sportdog",t:"Sportdog range",s:"Product configurator",build:buildSportdog},
+ {id:"stage",t:"AFM positioner",s:"Micro-positioning",build:buildStage},
+ {id:"cnc",t:"CNC toolpath",s:"Feeds & speeds",build:buildCNC}];
+const tabs=$("#labtabs"),root=$("#labroot");let labStop=null;
+LAB.forEach((l,i)=>{const b=el("button",{role:"tab","aria-selected":i===0,id:"tab-"+l.id},`<b>${l.t}</b><small>${l.s}</small>`);b.onclick=()=>openLab(l.id);tabs.appendChild(b)});
+function openLab(id){tabs.querySelectorAll("button").forEach(b=>b.setAttribute("aria-selected",b.id==="tab-"+id));if(labStop)labStop();root.innerHTML="";labStop=LAB.find(l=>l.id===id).build(root)||null}
+
+/* 1. LASER DEVICE */
+function buildLaser(root){
+  const {view,ctl,info}=frame(root,{title:"Closed-loop multi-laser source",why:"Pick a wavelength and the stepper rotates the carriage to that laser. Set a target power: the photodiode reads the beam through a 1:4 splitter and the firmware adjusts the liquid-crystal light valve until measured power matches. This is the control loop I designed, built and coded.",
+    proves:["System integration: mechanics, optics, electronics and firmware in one device","Control design: sensor-in-the-loop dimming without PWM flicker","Real part selection: NEMA 8, A4988, SG90, SKF 608, 20×4 LCD"],
+    thumbs:[["laser_render","Carriage and drive, SolidWorks render"],["laser_render2","Device with control box"],["laser_pcb","My Arduino shield in Altium"],["laser_render3","Control box"],["laser_v1","Version 1 of 3"],["laser_v2","Version 2 of 3"]]});
+  const parts={car:["Laser carriage · 90T gear","Six Ø8 mm lasers. 22:90 ratio from a NEMA 8 stepper gives 0.44° per step: fine enough to align the beam into the fibre reliably."],
+   shut:["Servo shutter · SG90","Optical on/off without cycling laser power, which keeps the diode output stable. Driven from the firmware's shutter menu."],
+   lclv:["Liquid-crystal light valve","Dims the beam by voltage instead of PWM, so the intensity on the sample is continuous. The firmware adjusts it from the photodiode reading."],
+   bs:["1:4 beam splitter","Sends a quarter of the beam to the photodiode so power can be measured while the experiment runs."],
+   pd:["Photodiode + amplifier","Measured photocurrent is converted to power in firmware and logged to the SD card every second."],
+   fib:["Fibre light guide","Carries the light to the AFM sample. The focusing-lens holder is one of the 3D-printed parts I designed."],
+   lcd:["Control box · 20×4 LCD + encoder","Menus for wavelength, mode, filter and SD operations. 823 lines of C++ in the final firmware version."]};
+  const W=760,H=430,s=svg(W,H);s.setAttribute("aria-label","Animated schematic of the multi-laser device");view.appendChild(s);
+  const slots=[405,505,685,450,532,650];const col={405:"#7b4dff",505:"#1fae63",685:"#e5484d",450:"#3a7bff",532:"#33c26b",650:"#ff6a3c"};
+  const CX=170,CY=215,R=120;
+  const car=sv("g",{"data-part":"car"},s);
+  const gearPath=(r,n)=>{let d="";for(let i=0;i<n*2;i++){const a=i*Math.PI/n,rr=i%2?r:r*1.05,h=Math.PI/n*.35;d+=(i?"L":"M")+(CX+Math.cos(a-h)*rr).toFixed(1)+","+(CY+Math.sin(a-h)*rr).toFixed(1)+"L"+(CX+Math.cos(a+h)*rr).toFixed(1)+","+(CY+Math.sin(a+h)*rr).toFixed(1)}return d+"Z"};
+  const gear=sv("path",{d:gearPath(R,90),fill:"none","stroke-width":2},car);
+  const rim=sv("circle",{cx:CX,cy:CY,r:R-18,fill:"none"},car);
+  const slotEls=slots.map(w=>{const g=sv("g",{},car);const c=sv("circle",{r:16,"stroke-width":2},g);const d=sv("circle",{r:7,fill:col[w]},g);const t=sv("text",{"text-anchor":"middle","font-size":9,"font-family":"monospace",y:30},g);t.textContent=w;return {g,c,d,t}});
+  const hub=sv("circle",{cx:CX,cy:CY,r:22,"stroke-width":2},car);
+  const px=CX,py=CY+R+R*22/90+6;const pin=sv("path",{d:"",fill:"none","stroke-width":1.6},s);
+  const pinPath=rot=>{const r=R*22/90,n=22;let d="";for(let i=0;i<n*2;i++){const a=i*Math.PI/n+rot,rr=i%2?r:r*1.06,h=Math.PI/n*.35;d+=(i?"L":"M")+(px+Math.cos(a-h)*rr).toFixed(1)+","+(py+Math.sin(a-h)*rr).toFixed(1)+"L"+(px+Math.cos(a+h)*rr).toFixed(1)+","+(py+Math.sin(a+h)*rr).toFixed(1)}return d+"Z"};
+  const motorLbl=sv("text",{x:px+R*22/90+8,y:py+4,"font-size":9,"font-family":"monospace"},s);motorLbl.textContent="NEMA 8 stepper";
+  const ax=CX,ay=CY-(R-46);
+  const beam=sv("path",{d:`M${ax},${ay-16} L${ax},70 L330,70`,fill:"none","stroke-width":5,"stroke-linecap":"round",opacity:0},s);
+  const beam2=sv("path",{d:"M400,70 L470,70",fill:"none","stroke-width":5,"stroke-linecap":"round",opacity:0},s);
+  const beam3=sv("path",{d:"M540,70 L640,70",fill:"none","stroke-width":5,"stroke-linecap":"round",opacity:0},s);
+  const beamPD=sv("path",{d:"M500,70 L500,120",fill:"none","stroke-width":3,"stroke-linecap":"round",opacity:0},s);
+  const shut=sv("g",{"data-part":"shut"},s);const shutBox=sv("rect",{x:340,y:40,width:56,height:60,rx:6,"stroke-width":1.5},shut);const blade=sv("rect",{x:362,y:46,width:12,height:48,rx:2},shut);const shutT=sv("text",{x:368,y:116,"text-anchor":"middle","font-size":9,"font-family":"monospace"},shut);shutT.textContent="shutter";
+  const bsg=sv("g",{"data-part":"bs"},s);const bsR=sv("rect",{x:476,y:46,width:48,height:48,"stroke-width":1.5,transform:"rotate(45 500 70)"},bsg);const bsL=sv("line",{x1:480,y1:50,x2:520,y2:90,"stroke-width":1.5},bsg);
+  const lclvG=sv("g",{"data-part":"lclv"},s);const lclv=sv("rect",{x:532,y:44,width:10,height:52,rx:2,"stroke-width":1.5},lclvG);const lclvT=sv("text",{x:537,y:116,"text-anchor":"middle","font-size":9,"font-family":"monospace"},lclvG);lclvT.textContent="LCLV";
+  const pdG=sv("g",{"data-part":"pd"},s);const pdR=sv("rect",{x:484,y:122,width:32,height:22,rx:4,"stroke-width":1.5},pdG);const pdT=sv("text",{x:500,y:160,"text-anchor":"middle","font-size":9,"font-family":"monospace"},pdG);pdT.textContent="photodiode";
+  const fibG=sv("g",{"data-part":"fib"},s);const fibR=sv("rect",{x:640,y:60,width:30,height:20,rx:3,"stroke-width":1.5},fibG);const fibLine=sv("path",{d:"M670,70 C700,70 710,110 735,110 L735,190",fill:"none","stroke-width":3},fibG);const fibT=sv("text",{x:700,y:52,"text-anchor":"middle","font-size":9,"font-family":"monospace"},fibG);fibT.textContent="to fibre → AFM";
+  const spot=sv("circle",{cx:735,cy:196,r:6,opacity:0},s);
+  const lcdG=sv("g",{"data-part":"lcd"},s);const lcdBox=sv("rect",{x:340,y:200,width:400,height:190,rx:12,"stroke-width":1.5},lcdG);sv("rect",{x:360,y:222,width:300,height:120,rx:6,fill:"#1d3b8a"},lcdG);
+  const lines=[0,1,2,3].map(i=>sv("text",{x:372,y:252+i*28,"font-size":15,"font-family":"monospace",fill:"#dfe8ff"},lcdG));
+  const knobR=sv("circle",{cx:700,cy:282,r:22,"stroke-width":1.5},lcdG);const knob=sv("line",{x1:700,y1:282,x2:700,y2:264,"stroke-width":3,"stroke-linecap":"round"},lcdG);
+  const lcdT=sv("text",{x:540,y:372,"text-anchor":"middle","font-size":9,"font-family":"monospace"},lcdG);lcdT.textContent="control box · 20×4 LCD · rotary encoder · SD log";
+  const dimT=sv("text",{x:40,y:418,"font-size":9,"font-family":"monospace"},s);dimT.textContent="IP027.01.230 · 22T : 90T · 0.44° / step";
+  const stateT=sv("text",{x:ax-40,y:ay-26,"font-size":10,"font-family":"monospace"},s);
+  hot(s,info,parts);
+  let angle=0,target=0,sel=405,shutter=true,targetP=70,valve=.3,meas=0,temp=22.4,logN=0,t0=performance.now();
+  const r=readouts(ctl,[["wl","wavelength"],["meas","measured"],["valve","light valve"],["step","stepper"]]);
+  segctl(ctl,"Wavelength",slots.slice(0,3).map(w=>[w,w+" nm"]),405,w=>pick(w));
+  slider(ctl,{label:"Target power",min:5,max:100,value:70,unit:" %",onInput:v=>targetP=v});
+  segctl(ctl,"Shutter",[[1,"Open"],[0,"Closed"]],1,v=>shutter=!!v);
+  function pick(w){sel=w;const i=slots.indexOf(w);let t=-i*Math.PI/3;while(t-angle>Math.PI)t-=2*Math.PI;while(angle-t>Math.PI)t+=2*Math.PI;target=t}
+  function paint(){
+    const I=css("--ink"),M=css("--muted"),L=css("--line"),F=css("--surface");
+    gear.setAttribute("stroke",I);rim.setAttribute("stroke",L);pin.setAttribute("stroke",M);motorLbl.setAttribute("fill",M);
+    [shutBox,bsR,pdR,fibR,lcdBox,knobR,hub].forEach(e=>{e.setAttribute("stroke",I);e.setAttribute("fill",F)});lclv.setAttribute("stroke",I);bsL.setAttribute("stroke",I);
+    [shutT,lclvT,pdT,fibT,lcdT,dimT,stateT].forEach(t=>t.setAttribute("fill",M));fibLine.setAttribute("stroke",M);knob.setAttribute("stroke",I);
+    const d=target-angle;const moving=Math.abs(d)>.003;if(moving)angle+=d*(reduce?1:.08);else angle=target;const aligned=!moving;
+    slotEls.forEach((o,i)=>{const a=angle+i*Math.PI/3-Math.PI/2,x=CX+Math.cos(a)*(R-46),y=CY+Math.sin(a)*(R-46);o.g.setAttribute("transform",`translate(${x},${y})`);o.c.setAttribute("stroke",I);o.c.setAttribute("fill",F);o.t.setAttribute("fill",M);o.d.setAttribute("opacity",aligned&&slots[i]===sel?1:.45)});
+    pin.setAttribute("d",pinPath(-angle*90/22+.07));
+    const on=aligned&&shutter;const out=on?100*(1-valve):0;meas+=(out-meas)*.2;
+    if(on){const err=targetP-meas;valve=Math.min(.95,Math.max(0,valve-err*.0025))}
+    const c=col[sel];
+    beam.setAttribute("stroke",c);beam.setAttribute("opacity",aligned?.95:0);
+    blade.setAttribute("fill",shutter?M:I);blade.setAttribute("transform",shutter?"translate(0,-40)":"");
+    beam2.setAttribute("stroke",c);beam2.setAttribute("opacity",on?.95:0);beamPD.setAttribute("stroke",c);beamPD.setAttribute("opacity",on?.6:0);
+    lclv.setAttribute("fill",`rgba(20,20,40,${(.15+valve*.8).toFixed(2)})`);
+    beam3.setAttribute("stroke",c);beam3.setAttribute("opacity",on?(.15+out/100*.85):0);
+    spot.setAttribute("fill",c);spot.setAttribute("opacity",on?out/100:0);spot.setAttribute("r",4+out/100*8);
+    stateT.textContent=moving?"stepper: rotating…":"stepper: holding";
+    lines[0].textContent=`λ ${sel} nm   ${shutter?"OPEN ":"SHUT "}`;lines[1].textContent=`set ${String(targetP).padStart(3)}%  meas ${String(Math.round(meas)).padStart(3)}%`;lines[2].textContent=`valve ${Math.round(valve*100)}%   T ${temp.toFixed(1)}C`;
+    if(performance.now()-t0>1000){t0=performance.now();logN++;temp+=(Math.random()-.5)*.1}lines[3].textContent=`SD log #${String(logN).padStart(4,"0")}`;
+    knob.setAttribute("transform",`rotate(${targetP*3} 700 282)`);
+    r("wl",sel+" nm");r("meas",Math.round(meas)+" %",Math.abs(meas-targetP)<3&&on?"ok":"");r("valve",Math.round(valve*100)+" %");r("step",moving?"moving":"holding",moving?"warn":"ok");
+  }
+  return raf(paint);
+}
+
+/* 2. OPERATING TABLE */
+function buildTable(root){
+  const {view,ctl,info}=frame(root,{title:"Operating-table actuator sizing",why:"Move the backrest and leg rest and watch the load on each LINAK actuator change with angle. I split each section onto two parallel actuators so the X-ray window stays clear and each actuator carries half the load. Worst cases in my calculation came out at 70%, 78% and 92% of rating.",
+    proves:["Engineering calculation: moment arms and force-vs-angle over the full range","Component selection: LA20 (6000 N) and LA23 (2500 N) from trade-off tables","Design for imaging: radiolucent zone kept free of actuators"],
+    thumbs:[["ot1","Table in flex"],["ot3","Sitting position"],["ot_tilt","Lateral tilt ±30°"],["ot2","Leg rests split"],["ot4","Trendelenburg"],["ot5","Reverse Trendelenburg"]]});
+  const parts={back:["Backrest section 01 · 2× LINAK LA20","Load is the patient's trunk (55% of body mass). Two actuators on the sides share it, so each needs ≤5 kN. LA20 is rated 6 kN in push."],
+   leg:["Leg rest · LINAK LA23","Rotates about the seat-leg link in two axes. LA23 is rated 2.5 kN; my worst case was 2310 N, 92% of rating."],
+   seat:["Seat · radiolucent zone","Nothing metal under the imaging window. That constraint is why the actuators sit on the sides."],
+   col:["Lifting column + universal joint","800–1200 mm height, ±40° Trendelenburg, ±30° lateral tilt, driven by control box CO71."],
+   box:["Control box CO61 + battery BA21","Cheapest box with 3 channels and CO-Link to the column's CO71. Li-ion BA21: most capacity that still charges in under 12 h."]};
+  const W=760,H=430,s=svg(W,H);s.setAttribute("aria-label","Side view of the operating table with movable sections");view.appendChild(s);
+  const base=sv("g",{"data-part":"col"},s);const baseR=sv("rect",{x:300,y:380,width:200,height:22,rx:6},base);const colR=sv("rect",{x:375,y:250,width:50,height:132,rx:4},base);const uj=sv("circle",{cx:400,cy:250,r:14},base);
+  const top=sv("g",{},s);
+  const seat=sv("g",{"data-part":"seat"},top);const seatR=sv("rect",{x:320,y:236,width:160,height:14,rx:3},seat);const xr=sv("rect",{x:340,y:239,width:120,height:8,rx:2,fill:"none","stroke-dasharray":"4 3"},seat);
+  const back=sv("g",{"data-part":"back"},top);const backR=sv("rect",{x:0,y:-14,width:190,height:14,rx:3},back);const headR=sv("rect",{x:190,y:-14,width:50,height:12,rx:3},back);
+  const leg=sv("g",{"data-part":"leg"},top);const legR=sv("rect",{x:-200,y:-14,width:200,height:14,rx:3},leg);
+  const actBline=sv("line",{"stroke-width":8,"stroke-linecap":"round"},top),actBrod=sv("line",{"stroke-width":4,"stroke-linecap":"round"},top);
+  const actLline=sv("line",{"stroke-width":8,"stroke-linecap":"round"},top),actLrod=sv("line",{"stroke-width":4,"stroke-linecap":"round"},top);
+  const box=sv("g",{"data-part":"box"},s);const boxR=sv("rect",{x:540,y:330,width:70,height:40,rx:6},box);const boxT=sv("text",{x:575,y:388,"text-anchor":"middle","font-size":9,"font-family":"monospace"},box);boxT.textContent="CO61 + BA21";
+  const pt=sv("text",{x:400,y:420,"text-anchor":"middle","font-size":10,"font-family":"monospace"},s);
+  const chart=sv("g",{transform:"translate(40,40)"},s);const chBox=sv("rect",{x:0,y:0,width:200,height:120,fill:"none","stroke-width":1},chart);
+  const curve=sv("path",{fill:"none","stroke-width":2},chart);const marker=sv("circle",{r:5},chart);const rating=sv("line",{x1:0,x2:200,"stroke-dasharray":"4 3"},chart);
+  const chT=sv("text",{x:0,y:-8,"font-size":10,"font-family":"monospace"},chart);const chX=sv("text",{x:100,y:136,"text-anchor":"middle","font-size":9,"font-family":"monospace"},chart);chX.textContent="angle →   force per actuator";
+  hot(s,info,parts);
+  let bA=0,lA=0,tr=0,which="back";
+  const r=readouts(ctl,[["fb","backrest / LA20"],["fl","leg rest / LA23"],["pos","position"]]);
+  slider(ctl,{label:"Backrest",min:-40,max:90,value:0,unit:"°",onInput:v=>{bA=v;which="back";draw()}});
+  slider(ctl,{label:"Leg rest",min:-90,max:20,value:0,unit:"°",onInput:v=>{lA=v;which="leg";draw()}});
+  slider(ctl,{label:"Trendelenburg",min:-40,max:40,value:0,unit:"°",onInput:v=>{tr=v;draw()}});
+  const Fback=a=>{const rad=a*Math.PI/180,g=9.81,m=275.5/2,L=.41,rr=.146;return Math.max(0,m*g*L*Math.cos(rad)/rr*.63*(1+.25*Math.sin(Math.max(0,rad))))};
+  const Fleg=a=>{const rad=a*Math.PI/180,g=9.81,m=70/2,L=.42,rr=.0638;return Math.max(0,m*g*L*Math.cos(rad*.7)/rr*.5)};
+  function draw(){
+    const i=css("--ink"),m=css("--muted"),f=css("--surface"),A=css("--accent"),G=css("--good"),Wn=css("--warn"),B=css("--bad");
+    [baseR,colR,uj,seatR,backR,headR,legR,boxR].forEach(e=>{e.setAttribute("stroke",i);e.setAttribute("fill",f)});xr.setAttribute("stroke",A);chBox.setAttribute("stroke",m);
+    [boxT,pt,chT,chX].forEach(t=>t.setAttribute("fill",m));
+    top.setAttribute("transform",`rotate(${-tr} 400 250)`);
+    back.setAttribute("transform",`translate(480,236) rotate(${-bA})`);leg.setAttribute("transform",`translate(320,236) rotate(${-lA})`);
+    const bx=480+Math.cos(-bA*Math.PI/180)*120,by=236+Math.sin(-bA*Math.PI/180)*120;
+    actBline.setAttribute("x1",440);actBline.setAttribute("y1",260);actBline.setAttribute("x2",(440+bx)/2);actBline.setAttribute("y2",(260+by)/2);actBrod.setAttribute("x1",(440+bx)/2);actBrod.setAttribute("y1",(260+by)/2);actBrod.setAttribute("x2",bx);actBrod.setAttribute("y2",by);
+    const lx=320-Math.cos(-lA*Math.PI/180)*110,ly=236-Math.sin(-lA*Math.PI/180)*110;
+    actLline.setAttribute("x1",360);actLline.setAttribute("y1",260);actLline.setAttribute("x2",(360+lx)/2);actLline.setAttribute("y2",(260+ly)/2);actLrod.setAttribute("x1",(360+lx)/2);actLrod.setAttribute("y1",(260+ly)/2);actLrod.setAttribute("x2",lx);actLrod.setAttribute("y2",ly);
+    const fb=Fback(bA),fl=Fleg(lA),pb=fb/6000,pl=fl/2500;const colr=p=>p<.8?G:p<1?Wn:B;
+    actBline.setAttribute("stroke",colr(pb));actBrod.setAttribute("stroke",m);actLline.setAttribute("stroke",colr(pl));actLrod.setAttribute("stroke",m);
+    r("fb",Math.round(fb)+" N · "+Math.round(pb*100)+"%",pb<.8?"ok":pb<1?"warn":"bad");r("fl",Math.round(fl)+" N · "+Math.round(pl*100)+"%",pl<.8?"ok":pl<1?"warn":"bad");
+    r("pos",bA>60?"Sitting / shoulder":bA<-30?"Jack-knife":tr>15?"Trendelenburg":tr<-15?"Reverse Trend.":lA<-60?"Lithotomy":"Supine");
+    pt.textContent="500 kg rated patient · trunk 55% · legs 14% (body segment data)";
+    const fn=which==="back"?Fback:Fleg,lo=which==="back"?-40:-90,hi=which==="back"?90:20,max=which==="back"?6000:2500,cur=which==="back"?bA:lA;
+    let d="";for(let k=0;k<=60;k++){const a=lo+(hi-lo)*k/60,x=200*k/60,y=120-120*Math.min(1.1,fn(a)/max)/1.1;d+=(k?"L":"M")+x.toFixed(1)+","+y.toFixed(1)}curve.setAttribute("d",d);curve.setAttribute("stroke",A);
+    const ry=120-120/1.1;rating.setAttribute("y1",ry);rating.setAttribute("y2",ry);rating.setAttribute("stroke",B);
+    marker.setAttribute("cx",200*(cur-lo)/(hi-lo));marker.setAttribute("cy",120-120*Math.min(1.1,fn(cur)/max)/1.1);marker.setAttribute("fill",A);
+    chT.textContent=(which==="back"?"Backrest · LA20 6000 N":"Leg rest · LA23 2500 N")+" (dashed = rating)";
+  }
+  draw();info.innerHTML=`<b>Simplified model</b>Curves use the moment-arm method from my report, scaled to its results. The red dashed line is the actuator's rated push force.`;
+  return onTheme(draw);
+}
+
+/* 3. SPORTDOG */
+function buildSportdog(root){
+  const {view,ctl,info}=frame(root,{title:"Collar-tag configurator",why:"Every Sportdog product had to fit two collar widths and carry a scannable QR. Change the collar, finish and fastening and the drawing updates the way my SolidWorks configurations did. The fit limits are the ones I wrote on the drawings.",
+    proves:["Product-family design: one geometry, two sizes, shared parts","Design for marking: laser-engraved vs reflective-print trade-off","Client-facing: drawings with fit limits and photo-realistic mock-ups"],
+    thumbs:[["sd_real3","Round badge on webbing"],["sd_p5l","Laser-engraved QR clip"],["sd_p5r","Reflective QR clip"],["sd_real2","Badge on leather collar"],["sd_p4b","Product 04 layers"],["sd_p8","30 and 50 mm versions"]]});
+  const parts={plate:["Front plate","Carries the QR. 3D-printed for prototypes, designed for injection moulding. Corners radiused so they don't snag fur."],slot:["Collar slot","Width follows the collar: 30 mm or 50 mm. Max collar thickness 4 mm is stated on the drawing."],
+   qr:["QR finish","Laser engraving is permanent and cheap at volume; reflective print scans better at night. I rendered both for the client."],fast:["Fastening","Nut head + nut back (Product 07) or a zip-tie lock (Product 10). The zip-tie needs no tools in the field."]};
+  const W=760,H=430,s=svg(W,H);s.setAttribute("aria-label","Parametric drawing of a collar tag");view.appendChild(s);
+  const g=sv("g",{transform:"translate(0,60)"},s);
+  const collar=sv("rect",{x:40,height:0,width:600,rx:4,fill:"#6b4a2b",opacity:.9},g);
+  const plateG=sv("g",{"data-part":"plate"},g);const plate=sv("rect",{rx:10,"stroke-width":2},plateG);
+  const slotG=sv("g",{"data-part":"slot"},g);const slotL=sv("rect",{"stroke-width":1.5,fill:"none","stroke-dasharray":"5 4"},slotG);
+  const qrG=sv("g",{"data-part":"qr"},g);const qrBg=sv("rect",{x:-6,y:-6,width:92,height:92,rx:4},qrG);const qrCells=[];for(let i=0;i<10;i++)for(let j=0;j<10;j++){if(((i*7+j*3+i*j)%5)<2||(i<3&&j<3)||(i>6&&j<3)||(i<3&&j>6))qrCells.push(sv("rect",{x:i*8,y:j*8,width:7,height:7},qrG))}
+  const fastG=sv("g",{"data-part":"fast"},g);const nutA=sv("circle",{r:9,"stroke-width":2},fastG),nutB=sv("circle",{r:9,"stroke-width":2},fastG),zip=sv("path",{fill:"none","stroke-width":5,"stroke-linecap":"round"},fastG),zipH=sv("rect",{width:14,height:10,rx:2},fastG);
+  const dims=sv("g",{"font-family":"monospace","font-size":10},s);
+  const dimW=sv("text",{"text-anchor":"middle"},dims),dimC=sv("text",{},dims),note=sv("text",{x:380,y:412,"text-anchor":"middle"},dims);
+  const dl1=sv("line",{"stroke-width":1},dims),dl2=sv("line",{"stroke-width":1},dims);
+  hot(s,info,parts);
+  let cw=50,finish="laser",fast="nut",product="rect";
+  const r=readouts(ctl,[["pn","product"],["size","plate"],["slot","collar slot"],["mass","est. mass"]]);
+  segctl(ctl,"Collar width",[[30,"30 mm"],[50,"50 mm"]],50,v=>{cw=v;draw()});
+  segctl(ctl,"Shape",[["rect","Rectangular clip"],["round","Round badge"]],"rect",v=>{product=v;draw()});
+  segctl(ctl,"QR finish",[["laser","Laser engraved"],["refl","Reflective print"]],"laser",v=>{finish=v;draw()});
+  segctl(ctl,"Fastening",[["nut","Nut head + back"],["zip","Zip-tie lock"]],"nut",v=>{fast=v;draw()});
+  function draw(){const i=css("--ink"),m=css("--muted"),f=css("--surface"),A=css("--accent");
+    const sc=4.2,pw=product==="rect"?(cw===50?67:43):(cw===50?60:44),ph=pw;const PW=pw*sc,PH=ph*sc,x0=340-PW/2,y0=0;
+    collar.setAttribute("y",y0+PH/2-cw*sc/2);collar.setAttribute("height",cw*sc);
+    plate.setAttribute("x",x0);plate.setAttribute("y",y0);plate.setAttribute("width",PW);plate.setAttribute("height",PH);plate.setAttribute("rx",product==="round"?PW/2:12);plate.setAttribute("fill",finish==="refl"?"#d9d4c5":"#c9c9c9");plate.setAttribute("stroke",i);
+    slotL.setAttribute("x",x0-14);slotL.setAttribute("y",y0+PH/2-cw*sc/2);slotL.setAttribute("width",PW+28);slotL.setAttribute("height",cw*sc);slotL.setAttribute("stroke",A);
+    const qs=Math.min(PW,PH)*.55,k=qs/80,qx=340-qs/2,qy=y0+PH/2-qs/2;qrG.setAttribute("transform",`translate(${qx},${qy}) scale(${k})`);qrBg.setAttribute("fill",finish==="refl"?"#f1e45a":"none");qrCells.forEach(c=>c.setAttribute("fill",finish==="laser"?"#3a3a3a":"#111"));
+    const nut=fast==="nut";[nutA,nutB].forEach(n=>{n.setAttribute("opacity",nut?1:0);n.setAttribute("fill",f);n.setAttribute("stroke",i)});zip.setAttribute("opacity",nut?0:1);zipH.setAttribute("opacity",nut?0:1);
+    nutA.setAttribute("cx",x0+18);nutA.setAttribute("cy",y0+18);nutB.setAttribute("cx",x0+PW-18);nutB.setAttribute("cy",y0+PH-18);
+    const ty=y0+PH/2-cw*sc/2-6,by=y0+PH/2+cw*sc/2+6;zip.setAttribute("d",`M${x0-10},${ty} L${x0+PW+10},${ty} L${x0+PW+10},${by} L${x0-10},${by} Z`);zip.setAttribute("stroke",i);zipH.setAttribute("x",x0+PW+4);zipH.setAttribute("y",y0+PH/2-5);zipH.setAttribute("fill",i);
+    dl1.setAttribute("x1",x0);dl1.setAttribute("x2",x0+PW);dl1.setAttribute("y1",60+PH+22);dl1.setAttribute("y2",60+PH+22);dl1.setAttribute("stroke",m);
+    dimW.setAttribute("x",340);dimW.setAttribute("y",60+PH+38);dimW.textContent=pw+" mm";dimW.setAttribute("fill",m);
+    dl2.setAttribute("x1",656);dl2.setAttribute("x2",656);dl2.setAttribute("y1",60+PH/2-cw*sc/2);dl2.setAttribute("y2",60+PH/2+cw*sc/2);dl2.setAttribute("stroke",A);
+    dimC.setAttribute("x",664);dimC.setAttribute("y",60+PH/2+4);dimC.innerHTML=`<tspan x="664">≤ ${cw} mm</tspan><tspan x="664" dy="13">≤ 4 mm thick</tspan>`;dimC.setAttribute("fill",A);
+    note.textContent=`Variant ${cw===50?"01":"02"} · ${cw===50?"large":"small"} collars · max width ${cw} mm · max thickness 4 mm`;note.setAttribute("fill",m);
+    r("pn",product==="rect"?(fast==="zip"?"Product 10":"Product 07"):(finish==="refl"?"Product 05 reflective":"Product 05 lasered"));r("size",`${pw} × ${ph} mm`);r("slot",`${cw} mm`);r("mass",`~${Math.round(pw*ph*3.5*1.05/1000*(product==="round"?.8:1))} g`);
+  }
+  draw();return onTheme(draw);
+}
+
+/* 4. AFM STAGE */
+function buildStage(root){
+  const {view,ctl,info}=frame(root,{title:"Motorised fibre positioner",why:"Three motions aim a fibre tip at an AFM sample: a linear stepper slide with 0.025 mm steps, a servo second axis and a tilt through a 5:1 spur-gear pair (3.6° per motor turn). Step the axes until the light spot lands under the AFM tip.",
+    proves:["Precision mechanism design with vendor motors and miniature bearings","Resolution calculation from lead, step angle and gear ratio","Engineering for someone else's requirements: a colleague's project, my design"],thumbs:[["cnc_wg","The hand-adjusted holder this replaced"],["laser_fiber","Fibre holder family"]]});
+  const parts={slide:["CH-SM1545 linear stepper","M3×0.5 lead screw, 18° step → 0.5 mm / 20 steps = 0.025 mm per step. Chosen over two others on pitch, price, mass and fit (scored 19 of 20)."],servo:["GS-1502 micro servo","Second axis, 1.75 mm effective resolution. Cheap, light, enough for coarse positioning."],gear:["Spur gears 0.25M · 12T → 60T","5:1 reduction on the micro stepper gives 3.6° of fibre tilt per motor revolution. Runs on MR74 and SKF W619 bearings."],sample:["Sample under the AFM tip","The point of the device: repeatable illumination for surface-charge measurements on the NT-MDT Solver P47 Pro."]};
+  const W=760,H=430,s=svg(W,H);s.setAttribute("aria-label","Side view of the fibre positioning stage");view.appendChild(s);
+  const baseR=sv("rect",{x:60,y:300,width:420,height:26,rx:4,"stroke-width":2},s);
+  const slideG=sv("g",{"data-part":"slide"},s);const rail=sv("rect",{x:80,y:286,width:380,height:10,rx:3,"stroke-width":1.5},slideG);const carriage=sv("rect",{y:262,width:90,height:34,rx:4,"stroke-width":2},slideG);const motorBox=sv("rect",{x:60,y:270,width:40,height:26,rx:3},slideG);
+  const servoG=sv("g",{"data-part":"servo"},s);const column=sv("rect",{width:22,height:80,rx:3,"stroke-width":2},servoG);const servoBox=sv("rect",{width:34,height:22,rx:3},servoG);
+  const gearG=sv("g",{"data-part":"gear"},s);const big=sv("circle",{r:26,"stroke-width":2,"stroke-dasharray":"3 2.5"},gearG);const small=sv("circle",{r:5.2,"stroke-width":2,"stroke-dasharray":"1.4 1.2"},gearG);const arm=sv("line",{"stroke-width":6,"stroke-linecap":"round"},gearG);const fibre=sv("line",{"stroke-width":3,"stroke-linecap":"round"},gearG);
+  const sampleG=sv("g",{"data-part":"sample"},s);const sampR=sv("rect",{x:560,y:120,width:120,height:12,rx:2},sampleG);const tip=sv("path",{d:"M620,60 L612,110 L628,110 Z"},sampleG);const spot=sv("ellipse",{rx:9,ry:5,opacity:.9},sampleG);const sT=sv("text",{x:620,y:150,"text-anchor":"middle","font-size":9,"font-family":"monospace"},sampleG);sT.textContent="a-SiO₂ sample · AFM tip";
+  const beam=sv("line",{"stroke-width":3,"stroke-linecap":"round",opacity:.85},s);
+  const tt=sv("text",{x:60,y:360,"font-size":10,"font-family":"monospace"},s);
+  hot(s,info,parts);
+  let x=4,y=21,motorTurns=2.8;
+  const r=readouts(ctl,[["x","X position"],["steps","X steps"],["y","Y position"],["tilt","fibre tilt"]]);
+  slider(ctl,{label:"X slide",min:0,max:15,step:.025,value:4,fmt:v=>v.toFixed(3)+" mm",onInput:v=>{x=v;draw()}});
+  slider(ctl,{label:"Y servo",min:0,max:35,step:1.75,value:21,fmt:v=>v.toFixed(2)+" mm",onInput:v=>{y=v;draw()}});
+  slider(ctl,{label:"Tilt motor",min:0,max:10,step:.1,value:5.5,fmt:v=>v.toFixed(1)+" turns",onInput:v=>{motorTurns=v;draw()}}).value=2.8;
+  function draw(){const i=css("--ink"),m=css("--muted"),f=css("--surface"),G=css("--good");
+    [baseR,rail,carriage,column,big,small,sampR].forEach(e=>{e.setAttribute("stroke",i);e.setAttribute("fill",f)});motorBox.setAttribute("fill",m);servoBox.setAttribute("fill",m);tip.setAttribute("fill",i);sT.setAttribute("fill",m);
+    const cx=110+x/15*300;carriage.setAttribute("x",cx);
+    const colH=40+y*1.6,colx=cx+34;servoG.setAttribute("transform",`translate(${colx},${262-colH})`);column.setAttribute("height",colH);servoBox.setAttribute("x",-6);servoBox.setAttribute("y",colH-26);
+    const tilt=motorTurns*3.6;gearG.setAttribute("transform",`translate(${colx+11},${262-colH})`);small.setAttribute("cx",31);small.setAttribute("cy",0);small.setAttribute("transform",`rotate(${motorTurns*360} 31 0)`);
+    const rad=(-tilt)*Math.PI/180,ax=Math.cos(rad)*60,ay=Math.sin(rad)*60;arm.setAttribute("x2",ax*.5);arm.setAttribute("y2",ay*.5);arm.setAttribute("stroke",i);fibre.setAttribute("x1",ax*.5);fibre.setAttribute("y1",ay*.5);fibre.setAttribute("x2",ax);fibre.setAttribute("y2",ay);fibre.setAttribute("stroke",m);
+    const fx=colx+11+ax,fy=262-colH+ay,dx=Math.cos(rad),dy=Math.sin(rad);let hitX=null;if(dy<0){hitX=fx+dx*((120-fy)/dy)}
+    const onS=hitX!==null&&hitX>560&&hitX<680;
+    beam.setAttribute("x1",fx);beam.setAttribute("y1",fy);beam.setAttribute("x2",hitX!==null?hitX:fx+dx*400);beam.setAttribute("y2",hitX!==null?120:fy+dy*400);beam.setAttribute("stroke","#7b4dff");beam.setAttribute("opacity",onS?.9:.35);
+    spot.setAttribute("cx",hitX!==null?Math.max(560,Math.min(680,hitX)):620);spot.setAttribute("cy",120);spot.setAttribute("fill","#7b4dff");spot.setAttribute("opacity",onS?.9:0);
+    const d=Math.abs((hitX||0)-620),hit=onS&&d<10;tt.textContent=onS?(hit?"spot under the AFM tip · ready to measure":`spot on sample, ${(d/4).toFixed(1)} mm from tip · keep adjusting`):"beam misses the sample: adjust X, Y or tilt";tt.setAttribute("fill",hit?G:m);
+    r("x",x.toFixed(3)+" mm");r("steps",Math.round(x/.025)+" of 600");r("y",y.toFixed(2)+" mm");r("tilt",tilt.toFixed(1)+"°",hit?"ok":"");
+  }
+  draw();return onTheme(draw);
+}
+
+/* 5. CNC */
+function buildCNC(root){
+  const {view,ctl,info}=frame(root,{title:"CNC process plan, part 01",why:"This is the 76 × 38 × 12 mm aluminium stock from my manufacturing chart, machined on a Bantam Tools desktop CNC. Step through the operations: the cutting data is the exact RPM, feed and chip load I calculated for each tool.",
+    proves:["Manufacturing planning: tool selection, feeds and speeds, operation order","Tolerancing: ±0.05 mm features, inspection plan on a CMM","Hands-on: these parts were machined and inspected"],thumbs:[["cnc_face","Face-milling toolpath, CAM"],["cnc_cmm","CMM for inspection"],["cnc_wg","Waveguide holder"]]});
+  const OPS=[{n:"Face milling",tool:"Ø12 mm carbide end mill, 2 flutes",rpm:13082,feed:8576,vc:492.9,chip:.3278,col:"#2346ff"},{n:"Pocket milling",tool:"Ø6 mm carbide end mill, 2 flutes",rpm:26786,feed:3482,vc:504.6,chip:.065,col:"#138a52"},{n:"Slot milling",tool:"Ø2 mm indexed ball mill",rpm:26981,feed:1451,vc:155.3,chip:.0268,col:"#c07a00"},{n:"Drilling 2× Ø3.6",tool:"Ø2 mm carbide spot drill",rpm:26908,feed:2480,vc:169,chip:.0921,col:"#c43a2f"},{n:"Inspection",tool:"CMM 500 × 400 × 400 mm",rpm:0,feed:0,vc:0,chip:0,col:"#7b4dff"}];
+  const parts={stock:["Stock 76 × 38 × 12 mm · Al 6020","Oversize so the face mill can true the top. Held in a vice; the split plane is noted on the chart."],pocket:["Open pocket · 52.2 × 20.5, 20×R2","Tool stick-out 51 mm, so feed is reduced to keep chip load at 0.065 mm per tooth."],slot:["Slot · ball-nose Ø2","Lowest surface speed of the set (155 m/min) because of the tiny tool. Feed 1451 mm/min."],holes:["2× Ø3.6 ±0.05","Position tolerance 0.05 to datums A and B. Checked on the CMM in step 5."]};
+  const W=760,H=430,cv=document.createElement("canvas");cv.width=W*2;cv.height=H*2;cv.setAttribute("aria-label","Animated CNC toolpath on the aluminium part");view.appendChild(cv);const cx=cv.getContext("2d");cx.scale(2,2);
+  let op=0,prog=0,play=true;
+  const r=readouts(ctl,[["rpm","spindle"],["feed","feed"],["vc","surface speed"],["chip","chip load"]]);
+  const seg=segctl(ctl,"Operation",OPS.map((o,i)=>[i,(i+1)+" "+o.n.split(" ")[0]]),0,i=>setOp(i));
+  segctl(ctl,"Playback",[[1,"Play"],[0,"Pause"]],1,v=>play=!!v);
+  function setOp(i){op=i;prog=0;seg.querySelectorAll("button").forEach((b,k)=>b.setAttribute("aria-pressed",k===i));const o=OPS[i];info.innerHTML=`<b>Operation ${i+1} of 5</b>${o.n}: ${o.tool}`;r("rpm",o.rpm?o.rpm.toLocaleString()+" rpm":"—");r("feed",o.feed?o.feed.toLocaleString()+" mm/min":"—");r("vc",o.vc?o.vc+" m/min":"—");r("chip",o.chip?o.chip+" mm/tooth":"—")}
+  setOp(0);
+  const ox=120,oy=90,sc=6.2;const P=(x,y)=>[ox+x*sc,oy+y*sc];
+  function roundRect(x,y,w,h,rr){cx.beginPath();cx.moveTo(x+rr,y);cx.arcTo(x+w,y,x+w,y+h,rr);cx.arcTo(x+w,y+h,x,y+h,rr);cx.arcTo(x,y+h,x,y,rr);cx.arcTo(x,y,x+w,y,rr);cx.closePath()}
+  function tool([x,y],rr){cx.beginPath();cx.arc(x,y,rr,0,7);cx.fill();cx.strokeStyle=css("--ink");cx.lineWidth=1;cx.beginPath();cx.moveTo(x-rr-6,y);cx.lineTo(x+rr+6,y);cx.moveTo(x,y-rr-6);cx.lineTo(x,y+rr+6);cx.stroke()}
+  function draw(){const ink=css("--ink"),m=css("--muted"),f=css("--surface"),ln=css("--line");
+    cx.clearRect(0,0,W,H);
+    cx.fillStyle=f;cx.strokeStyle=ink;cx.lineWidth=2;cx.beginPath();cx.rect(...P(0,0),76*sc,38*sc);cx.fill();cx.stroke();
+    cx.strokeStyle=ln;cx.lineWidth=1;cx.setLineDash([4,3]);roundRect(...P(12,8.75),52.2*sc,20.5*sc,2*sc);cx.stroke();cx.beginPath();cx.rect(...P(5,16),4.5*sc,6*sc);cx.stroke();[[8,32],[68,32]].forEach(([x,y])=>{cx.beginPath();cx.arc(...P(x,y),1.8*sc,0,7);cx.stroke()});cx.setLineDash([]);
+    const done=k=>k<op;
+    if(done(0)){cx.fillStyle="rgba(35,70,255,.10)";cx.fillRect(...P(0,0),76*sc,38*sc)}
+    if(done(1)){cx.fillStyle="rgba(19,138,82,.25)";roundRect(...P(12,8.75),52.2*sc,20.5*sc,2*sc);cx.fill()}
+    if(done(2)){cx.fillStyle="rgba(192,122,0,.35)";cx.fillRect(...P(5,16),4.5*sc,6*sc)}
+    if(done(3)){cx.fillStyle="rgba(196,58,47,.5)";[[8,32],[68,32]].forEach(([x,y])=>{cx.beginPath();cx.arc(...P(x,y),1.8*sc,0,7);cx.fill()})}
+    const o=OPS[op],p=Math.min(1,prog);cx.strokeStyle=o.col;cx.fillStyle=o.col;
+    if(op===0){const rows=4,i=Math.min(rows-1,Math.floor(p*rows)),t=p*rows-i,y=4.75+i*9.5,x=i%2?76-76*t:76*t;cx.lineWidth=12*sc*.9;cx.globalAlpha=.25;cx.beginPath();for(let k=0;k<=i;k++){const yy=4.75+k*9.5;const [a,b]=P(k%2?76:0,yy),[c,d]=P(k%2?0:76,yy);cx.moveTo(a,b);if(k<i)cx.lineTo(c,d);else cx.lineTo(...P(x,yy))}cx.stroke();cx.globalAlpha=1;tool(P(x,y),6*sc)}
+    else if(op===1){const ang=p*Math.PI*8,rr=Math.min(1,p*1.3),x=38.1+Math.cos(ang)*23*rr,y=19+Math.sin(ang)*7*rr;cx.globalAlpha=.25;roundRect(...P(38.1-26.1*rr,19-10.25*rr),52.2*sc*rr,20.5*sc*rr,2*sc);cx.fill();cx.globalAlpha=1;tool(P(x,y),3*sc)}
+    else if(op===2){cx.globalAlpha=.4;cx.fillRect(...P(5,16),4.5*sc,6*sc*p);cx.globalAlpha=1;tool(P(7.25,16+6*p),1*sc)}
+    else if(op===3){const k=p<.5?0:1,q=(p*2)%1,[x,y]=[[8,32],[68,32]][k];cx.globalAlpha=.5;cx.beginPath();cx.arc(...P(x,y),1.8*sc*q,0,7);cx.fill();cx.globalAlpha=1;tool(P(x,y),1*sc)}
+    else{const pts=[[12,8.75],[64.2,8.75],[64.2,29.25],[12,29.25],[8,32],[68,32]],i=Math.min(pts.length-1,Math.floor(p*pts.length));cx.lineWidth=1.5;pts.slice(0,i+1).forEach(([x,y])=>{const [a,b]=P(x,y);cx.beginPath();cx.arc(a,b,5,0,7);cx.stroke();cx.beginPath();cx.moveTo(a,b);cx.lineTo(a,b-18);cx.stroke()});cx.fillStyle=m;cx.font="10px monospace";cx.fillText("CMM touch points · datums A, B · ±0.05",ox,oy+38*sc+40)}
+    cx.fillStyle=m;cx.font="10px monospace";cx.fillText("76.0",ox+76*sc/2-10,oy-8);cx.save();cx.translate(ox-10,oy+38*sc/2);cx.rotate(-Math.PI/2);cx.fillText("38.0",-12,0);cx.restore();
+    cx.fillText("Bantam Tools desktop CNC · max 29 000 rpm · Al 6020",ox,oy+38*sc+22);
+    cx.fillStyle=ln;cx.fillRect(ox,H-30,76*sc,6);cx.fillStyle=o.col;cx.fillRect(ox,H-30,76*sc*p,6);cx.fillStyle=m;cx.fillText(`${o.n} ${Math.round(p*100)}%`,ox,H-38);
+    if(play){prog+=reduce?1:.0045;if(prog>1.15)setOp((op+1)%OPS.length)}
+  }
+  const ov=el("div",{style:"position:absolute;inset:0"});view.appendChild(ov);
+  [["stock",2,15,20,70],["pocket",22,24,45,45],["slot",14,47,10,16],["holes",14,80,10,12]].forEach(([k,l,t,w,h])=>{const b=el("button",{"aria-label":parts[k][0],style:`position:absolute;left:${l}%;top:${t}%;width:${w}%;height:${h}%;background:transparent;border:0;cursor:pointer`});b.onmouseenter=b.onclick=()=>{info.innerHTML=`<b>${parts[k][0]}</b>${parts[k][1]}`};ov.appendChild(b)});
+  return raf(draw);
+}
+openLab("laser");
+
+/* ---------- professional framing for cards ---------- */
+const CARD={
+ P1:{n:"01",cat:"End-to-end product development",note:"Research instrumentation · requirements to working prototype",lead:"Researchers needed to switch wavelengths during measurements without manually replacing lasers. I designed and built a motorised six-laser source with closed-loop intensity control and data logging.",
+   b:["Owned requirements, concept selection, mechanical design and system integration","Designed the Altium control board and Arduino firmware for motion, menus and SD logging","Delivered a working prototype, a 12-sheet A1 drawing set, priced BOM, mould and machining plan, and risk analysis","Three concepts assessed · 100+ parts · €486 primary BOM"]},
+ P6:{n:"02",cat:"Consumer product · industry",note:"Industry · Sportdog.lv",lead:"As lead 3D design engineer, I developed a coordinated range of QR badges, clips and mounts for two collar widths.",
+   b:["Designed 10 products and evaluated fastening and marking options with the client","Ran static FEA, prepared drawings and laser-marking artwork, and iterated printed prototypes","Defined fit limits and part details to support repeatable production"]},
+ P2:{n:"03",cat:"Medical device engineering",note:"Surgical systems · subsystem engineering",lead:"Led tabletop subsystem engineering within a surgical table redesign, balancing clinical positioning, imaging access and safe load handling.",
+   b:["Justified 20 specification parameters; calculated actuator loads across the full range of motion","Selected actuators and controls; assessed 550 kg structural load cases with SolidWorks FEA","Completed an ISO 14971 risk analysis and documented safety measures"]},
+ P8:{n:"04",cat:"Clinical research engineering",lead:"With Kuopio University Hospital and the University of Eastern Finland, I developed the Advanced Dose Distribution Index (ADDI), a mathematical framework and software for objective, reproducible radiotherapy plan evaluation.",
+   b:["Modelling, software development and validation with clinical physicists","Three papers completed; doctoral completion expected 2027","Second place, Best Poster, at LFTY 2025 and Sädehoitopäivät 2026; poster highlight, ESTRO 2026"]},
+ P7:{n:"05",cat:"Mechanism design",note:"Precision mechanism · design engagement",lead:"Mechanical design and engineering planning for a colleague's motorised fibre positioner for atomic force microscopy. The project report and defence were hers.",
+   b:["Designed a linear stepper slide, servo axis and gear-reduced tilt mechanism","Selected motors and bearings against resolution, size and cost","Specified a 0.025 mm linear step; prepared parts list, priced BOM and print plan"]},
+ P3:{n:"06",cat:"Manufacturing engineering",note:"Manufacturing engineering",lead:"Developed the machining route for aluminium fixture components, from tooling and cutting data through inspection.",
+   b:["Process charts, feeds and speeds, and G-code for desktop CNC operations","Coordinate-measuring-machine inspection plan for ±0.05 mm features"]},
+ P4:{n:"07",cat:"R&D engineering · industry",note:"Industry · SIA Vizulo",lead:"After assembly-line work, I supported the R&D team with PCB updates and production documentation.",
+   b:["Updated boards to company standards and supported designs for new luminaire forms","Prepared documentation for manufacturing, assembly and customers","Observed SMT, CNC punching, bending, welding and powder coating"]},
+ P5:{n:"08",cat:"Research instrumentation",note:"Research · AFM / KPFM",lead:"Self-initiated research on light-induced surface charge in amorphous silica, including the light-delivery hardware for the atomic force microscope.",
+   b:["Designed and resin-printed a light-guide fixture and multi-laser holder","Identified inconsistent results from mixed-vendor lasers and re-sourced a matched set","Modelled charging and discharging kinetics; thesis graded 10/10"]}
+};
+const ORDER2=["P1","P6","P2","P8","P7","P3","P4","P5"];
+
+/* ---------- cards ---------- */
+const grid=$("#grid");
+ORDER2.forEach(id=>{const p=PROJ[id],c=CARD[id];
+  const cls=id==="P1"?"feature":id==="P8"?"text":id==="P5"?"wide":"";
+  const a=el("article",{class:"project "+cls,"data-id":id});
+  let fig="";
+  const contain=["P2","P3","P5","P6","P7"].includes(id);
+  if(p.img){fig=`<figure${contain?' class="contain"':''}><img src="${IMG(p.img)}" alt="${p.title}" loading="${id==="P1"?"eager":"lazy"}">${c.note?`<figcaption class="note">${c.note}</figcaption>`:""}${id==="P1"?pinsHTML():""}</figure>`}
+  a.innerHTML=`${fig}<div class="pcopy"><div class="meta">${c.n} / ${c.cat} · ${p.when}</div><h3>${p.title}</h3><p>${c.lead}</p><ul>${c.b.map(x=>`<li>${x}</li>`).join("")}</ul><div class="tags">${p.tags.map(t=>`<span>${t}</span>`).join("")}</div><button class="more" data-open="${id}">Read the case study →</button></div>`;
+  grid.appendChild(a)});
+grid.querySelectorAll("[data-open]").forEach(b=>b.onclick=()=>openSheet(b.dataset.open,b));
+const callout=el("p",{class:"callout"},"<b>Five of these projects are rebuilt as interactive models below.</b> Each runs on the original geometry, part numbers and calculations.");grid.after(callout);
+
+/* annotated hero render on case 01 */
+function pinsHTML(){const pos=[[30,46],[57,16],[88,52],[70,76],[25,84]];return `<div class="pin-cap" id="pin-cap" hidden></div>`+pos.map(([l,t],i)=>`<button class="pin" style="left:${l}%;top:${t}%" data-i="${i}" aria-expanded="false" aria-label="${HOT[i][0]}">${i+1}</button>`).join("")}
+(function(){const capEl=$("#pin-cap");const f=grid.querySelector(".feature figure img");if(f)f.src=IMG("laser_render");
+  document.querySelectorAll(".pin").forEach(p=>p.onclick=e=>{e.stopPropagation();const open=p.getAttribute("aria-expanded")==="true";document.querySelectorAll(".pin").forEach(x=>x.setAttribute("aria-expanded","false"));if(open){capEl.hidden=true;return}p.setAttribute("aria-expanded","true");const [t,d]=HOT[+p.dataset.i];capEl.innerHTML=`<b>${String(+p.dataset.i+1).padStart(2,"0")} · ${t}</b>${d}`;capEl.hidden=false})})();
+
+/* ---------- role mapping ---------- */
+const rolesEl=$("#roles"),fp=$("#fitpanel");
+ROLES.forEach((ro,i)=>{const b=el("button",{class:"role","aria-pressed":i===0},`<b>${ro.t}</b><span>${ro.s}</span>`);b.onclick=()=>{rolesEl.querySelectorAll(".role").forEach(x=>x.setAttribute("aria-pressed","false"));b.setAttribute("aria-pressed","true");showRole(ro)};rolesEl.appendChild(b)});
+function showRole(ro){const n=ro.reqs.length,linked=new Set(ro.reqs.flatMap(r=>r[2])).size;
+  fp.innerHTML=`<div class="fp-head"><h3>${ro.t}</h3><span>${n} requirements · evidenced across ${linked} project${linked===1?"":"s"}</span></div>
+  <ul class="reqs">${ro.reqs.map(([need,e,ps])=>`<li class="req"><span class="need">${need}</span><span class="ev">${e}${ps.length?"<br>":""}${ps.map(p=>`<button data-p="${p}">${CARD[p].n} ${SHORT[p]} →</button>`).join("")}</span></li>`).join("")}</ul>`;
+  fp.querySelectorAll("[data-p]").forEach(b=>b.onclick=()=>openSheet(b.dataset.p,b))}
+showRole(ROLES[0]);
+
+/* ---------- case study sheet ---------- */
+const wrap=$("#sheetwrap"),sheet=$("#sheet");let back=null;
+function openSheet(id,from){const p=PROJ[id],c=CARD[id];back=from;
+  sheet.innerHTML=`<header><div><span class="label">${c.n} / ${c.cat} · ${p.org} · ${p.when}</span><h3 id="sh-title">${p.title}</h3></div><button class="close" id="sh-x">Close ✕</button></header>
+  <div class="sb"><p class="summary">${p.summary}</p>${p.credit?`<p class="credit">${p.credit}</p>`:""}
+  <div class="kpis">${p.kpis.map(([b,s])=>`<div class="kpi"><b>${b}</b><span>${s}</span></div>`).join("")}</div>
+  <div class="cols"><div><h4>Scope</h4><ul>${p.did.map(x=>`<li>${x}</li>`).join("")}</ul></div><div><h4>Deliverables &amp; outcome</h4><ul>${p.result.map(x=>`<li>${x}</li>`).join("")}</ul></div></div>
+  ${p.drawings?`<div><h4>Engineering drawing set</h4><p class="dnote">${p.drawings.length} of 12 A1 sheets, prepared to engineering drawing standards and formally checked and approved at Riga Technical University. Click a sheet to open it; use "Open full size" to read the detail.</p><div class="dwgs">${p.drawings.map(([n,no,t,d])=>`<button data-src="${IMG(n)}" data-cap="${no} · ${t}" aria-label="${t} drawing"><img src="${IMG(n+"_t")}" alt="${t}, drawing ${no}" loading="lazy"><span class="dn">${no}</span><b>${t}</b><span class="dd">${d}</span></button>`).join("")}</div></div>`:""}
+  ${p.gallery.length?`<div><h4>Drawings, renders &amp; photographs</h4><div class="gallery">${p.gallery.map(([n,cap])=>`<button data-src="${IMG(n)}" data-cap="${cap}" aria-label="${cap}"><img src="${IMG(n)}" alt="${cap}" loading="lazy"></button>`).join("")}</div></div>`:""}
+  <div class="discuss"><h4 style="margin-bottom:6px">For discussion</h4>${p.ask}</div>
+  <div class="tags">${p.tags.map(t=>`<span>${t}</span>`).join("")}</div></div>`;
+  wrap.hidden=false;document.body.style.overflow="hidden";$("#sh-x").onclick=closeSheet;$("#sh-x").focus();
+  sheet.querySelectorAll(".gallery button").forEach(b=>b.onclick=()=>light(b.dataset.src,b.dataset.cap));sheet.querySelectorAll(".dwgs button").forEach(b=>b.onclick=()=>light(b.dataset.src,b.dataset.cap,b.dataset.src))}
+function closeSheet(){wrap.hidden=true;document.body.style.overflow="";if(back)back.focus()}
+wrap.addEventListener("click",e=>{if(e.target===wrap)closeSheet()});
+document.addEventListener("keydown",e=>{if(e.key==="Escape"){if(!lb.hidden)lb.hidden=true;else if(!wrap.hidden)closeSheet()}});
+
+/* ---------- approach ---------- */
+const flow=$("#flow"),note=$("#flow-note");
+STAGES.forEach(([t,ps,d],i)=>{const b=el("button",{class:"step","aria-pressed":"false"},`<span class="n">${String(i+1).padStart(2,"0")}</span><b>${t}</b>`);
+  b.onclick=()=>{const on=b.getAttribute("aria-pressed")==="true";flow.querySelectorAll(".step").forEach(x=>x.setAttribute("aria-pressed","false"));grid.querySelectorAll(".project").forEach(c=>c.classList.remove("dim","lit"));
+    if(on){note.textContent="Each stage is documented in drawings, reports or code.";return}
+    b.setAttribute("aria-pressed","true");note.innerHTML=`<b>${t}.</b> ${d} Evidenced in ${ps.map(p=>CARD[p].n+" "+SHORT[p]).join(", ")}. <a href="#work">View highlighted projects ↑</a>`;
+    grid.querySelectorAll(".project").forEach(c=>c.classList.add(ps.includes(c.dataset.id)?"lit":"dim"))};flow.appendChild(b)});
+
+/* ---------- copy ---------- */
+document.querySelectorAll("[data-copy]").forEach(b=>b.onclick=()=>{const n=document.getElementById(b.dataset.copy);copyText(n.textContent.replace(" ↗",""),n)});
+$("#copykw").onclick=()=>copyText("Hiran Maladenige — Product & R&D Engineer, Kuopio, Finland. Certified SolidWorks Professional (CSWP, Mechanical Design, 2020, credential C-GDLRE69AFY) and Associate (CSWA, 2018, credential C-A3RPKRSD38); Autodesk Fusion. New product development, requirements, concept selection, DFM, FEA, mechanism design, Altium PCB design, embedded C++, Python, CNC process planning, 3D printing, injection mould design, BOM costing, ISO 14971, IEC 60601-1. Lead 3D design engineer at Sportdog.lv (10-product range). MSc Applied Physics; D.Sc. Medical Physics expected 2027 (UEF). English IELTS 8.0. hiranmaladenige@gmail.com · linkedin.com/in/hiran-maladenige",null);
+openLab("laser");
+
+</script>
