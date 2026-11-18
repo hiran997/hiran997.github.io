@@ -1,0 +1,37 @@
+# Hiran Maladenige, Product Engineer
+
+> Product and R&D engineer in Kuopio, Finland. Takes products from requirements to working prototype: mechanical design, system integration, electronics, testing, drawings, costing and risk analysis. Certified SOLIDWORKS Professional (CSWP). Available for full-time work.
+
+- Portfolio: https://hiran997.github.io/
+- CV (PDF): https://hiran997.github.io/Hiran_Maladenige_CV.pdf
+- LinkedIn: https://www.linkedin.com/in/hiran-maladenige/
+- Email: hiranmaladenige@gmail.com
+
+## Summary of output
+- 13 products and devices designed, including a 10-product range as lead 3D design engineer at Sportdog.lv (2022)
+- 300+ CAD parts and assemblies modelled; 50+ engineering drawings produced
+- Certified SOLIDWORKS Professional (CSWP, 2020, ID C-GDLRE69AFY) and Associate (CSWA, 2018, ID C-A3RPKRSD38)
+
+## Selected projects
+- Multi-laser light source for an atomic force microscope (2021–2022): sole engineer; over 100 parts; system integration of mechanics, optics, electronics and firmware; custom Altium PCB; 12-sheet A1 drawing set; mould and CNC plans; risk analysis; €486 BOM
+- Dog-collar QR tag product range, Sportdog.lv (2022): 10 products; SOLIDWORKS, FEA, production drawings, prototypes
+- Surgical operating table, tabletop subsystem (2021): 20 specification parameters, actuator sizing, 550 kg FEA load cases, ISO 14971
+- Motorised fibre positioner for an AFM (2022): 32-body mechanism, 0.025 mm linear step
+- CNC parts for a laser aiming fixture (2021): machining route, G-code, CMM plan for ±0.05 mm
+- ADDI radiotherapy plan evaluation software (2024–2026), Kuopio University Hospital
+
+## Experience
+- Doctoral Researcher, Kuopio University Hospital / University of Eastern Finland (2024–present)
+- Research Aide, then Research Assistant, Kuopio University Hospital (2023–2024)
+- Lead 3D Design Engineer, Sportdog.lv, Riga (04/2022–11/2022)
+- 3D Designer & Data Analyst, Demola Latvia (2022)
+- R&D Engineering Trainee, SIA Vizulo (09/2021)
+- Undergraduate Research Assistant, Riga Technical University (2020–2022)
+
+## Education
+- MSc Applied Physics (Medical Physics), University of Eastern Finland (2022–2024)
+- Engineer, Medical Physical Technologies + Professional Bachelor, Medical Physics, Riga Technical University and Rīga Stradiņš University (2018–2022)
+- Doctoral studies, Medical Physics, University of Eastern Finland (2024–, defence expected 2027)
+
+## Languages
+English (fluent, IELTS 8.0), Sinhala (native), Finnish (intermediate, near B1)
