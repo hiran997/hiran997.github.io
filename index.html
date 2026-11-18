@@ -3,6 +3,7 @@
 <meta name="description" content="Hiran Maladenige is a Product and R&D Engineer in Kuopio, Finland, working from requirements through CAD, electronics, prototyping and validation.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap">
+<script>try{var t=localStorage.getItem("hm-theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t)}catch(e){}document.documentElement.classList.add("js")</script>
 <style>
 /* Layout: restrained engineering-consultancy page. Name-led hero with an "At a glance" panel, proof strip,
    numbered case studies (first one annotated), interactive engineering models, role mapping, approach,
@@ -393,12 +394,45 @@ header#home::before{content:"";position:absolute;inset:0;z-index:-1;pointer-even
 .cap h3{font-size:1rem}.cap p{font-size:.86rem}
 #skills{background:var(--surface)}
 footer{font-size:.78rem}
+
+/* ===== Polish: reveal, glass nav, headings, count-up, zoom, theme toggle ===== */
+nav.top{background:color-mix(in srgb,var(--paper) 72%,transparent);backdrop-filter:blur(18px) saturate(1.6);-webkit-backdrop-filter:blur(18px) saturate(1.6);border-bottom-color:color-mix(in srgb,var(--line) 70%,transparent)}
+.progress{position:absolute;left:0;right:0;bottom:-1px;height:2px;pointer-events:none}
+.progress span{display:block;height:100%;width:100%;background:linear-gradient(90deg,var(--gold),color-mix(in srgb,var(--gold) 60%,#fff));transform-origin:0 50%;transform:scaleX(0)}
+.theme-t{width:36px;height:36px;display:inline-grid;place-items:center;border:1px solid var(--line);border-radius:50%;background:transparent;cursor:pointer;color:var(--ink);transition:border-color .2s,background .2s;flex:none}
+.theme-t:hover{border-color:var(--gold);background:var(--raised)}
+.theme-t svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.theme-t .i-sun{display:none}
+:root[data-theme="dark"] .theme-t .i-sun{display:block}:root[data-theme="dark"] .theme-t .i-moon{display:none}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .theme-t .i-sun{display:block}:root:not([data-theme="light"]) .theme-t .i-moon{display:none}}
+
+/* gradient headings */
+.hero h1,.section-head h2{background:linear-gradient(100deg,var(--ink) 0%,var(--ink) 35%,color-mix(in srgb,var(--accent) 85%,var(--ink)) 100%);-webkit-background-clip:text;background-clip:text;color:transparent;letter-spacing:-.05em}
+.hero h1{padding-bottom:.06em}
+
+/* image hover zoom */
+.project figure img{transition:transform .6s cubic-bezier(.2,.7,.2,1),filter .4s}
+.project:not(.feature):hover figure img{transform:scale(1.045);filter:saturate(1)}
+.gallery img,.dwgs img{transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.gallery button:hover img{transform:scale(1.06)}
+
+/* scroll reveal (uses the independent `translate` property so hover transforms still work) */
+.js .rv{opacity:0;translate:0 22px;transition:opacity .7s cubic-bezier(.2,.7,.2,1),translate .7s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0ms)}
+.js .rv.in{opacity:1;translate:0 0}
+@media (prefers-reduced-motion:reduce){.js .rv{opacity:1;translate:none;transition:none}.project figure img,.gallery img{transition:none}.project:hover figure img{transform:none}}
+@media print{.js .rv{opacity:1;translate:none}}
+
+/* glance labels: stronger contrast */
+.glance dl div{grid-template-columns:112px minmax(0,1fr)}
+.glance dt{font:700 .7rem var(--mono);letter-spacing:.09em;color:#e6cf9f;padding-top:2px}
+.glance h2{font-size:1rem}
+@media (max-width:420px){.glance dl div{grid-template-columns:96px minmax(0,1fr)}.glance dt{font-size:.64rem}}
 </style>
 
 <nav class="top gut" aria-label="Main navigation"><div class="wrap">
   <a class="brand" href="#home">HIRAN MALADENIGE</a>
-  <div class="nav"><a href="#work" class="keep">Selected work</a><a href="#models">Engineering models</a><a href="#roles-sec">Role mapping</a><a href="#experience">Experience</a><a class="cta" href="#contact">Contact</a></div>
-</div></nav>
+  <div class="nav"><a href="#work" class="keep">Selected work</a><a href="#models">Engineering models</a><a href="#roles-sec">Role mapping</a><a href="#experience">Experience</a><a class="cta" href="#contact">Contact</a><button class="theme-t" id="theme-t" type="button" aria-label="Switch to dark theme"><svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg><svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg></button></div>
+</div><div class="progress" aria-hidden="true"><span id="progress"></span></div></nav>
 
 <main>
 <header class="gut" id="home"><div class="wrap">
@@ -986,4 +1020,32 @@ document.querySelectorAll("[data-copy]").forEach(b=>b.onclick=()=>{const n=docum
 $("#copykw").onclick=()=>copyText("Hiran Maladenige — Product & R&D Engineer, Kuopio, Finland. Certified SolidWorks Professional (CSWP, Mechanical Design, 2020, credential C-GDLRE69AFY) and Associate (CSWA, 2018, credential C-A3RPKRSD38); Autodesk Fusion. New product development, requirements, concept selection, DFM, FEA, mechanism design, Altium PCB design, embedded C++, Python, CNC process planning, 3D printing, injection mould design, BOM costing, ISO 14971, IEC 60601-1. Lead 3D design engineer at Sportdog.lv (10-product range). MSc Applied Physics; D.Sc. Medical Physics expected 2027 (UEF). English IELTS 8.0. hiranmaladenige@gmail.com · linkedin.com/in/hiran-maladenige",null);
 openLab("laser");
 
+
+/* ---------- polish: reveal, progress, count-up, theme toggle ---------- */
+(function(){
+  const root=document.documentElement,rm=matchMedia("(prefers-reduced-motion: reduce)").matches;
+  // theme toggle
+  const tb=document.getElementById("theme-t");
+  const isDark=()=>root.getAttribute("data-theme")==="dark"||(root.getAttribute("data-theme")!=="light"&&matchMedia("(prefers-color-scheme: dark)").matches);
+  const label=()=>tb.setAttribute("aria-label",isDark()?"Switch to light theme":"Switch to dark theme");
+  label();
+  tb.addEventListener("click",()=>{const n=isDark()?"light":"dark";root.setAttribute("data-theme",n);try{localStorage.setItem("hm-theme",n)}catch(e){}label()});
+  // scroll progress
+  const bar=document.getElementById("progress");let tick=false;
+  const upd=()=>{const h=document.documentElement.scrollHeight-innerHeight;bar.style.transform="scaleX("+(h>0?Math.min(1,scrollY/h):0)+")";tick=false;if(window.__rvSweep)window.__rvSweep()};
+  addEventListener("scroll",()=>{if(!tick){tick=true;requestAnimationFrame(upd)}},{passive:true});upd();
+  // reveal
+  const groups=[".section-head",".proof",".project",".callout",".lab",".fit",".flow",".job",".minor",".card",".cap",".contact .wrap>div"];
+  const els=[];
+  groups.forEach(sel=>document.querySelectorAll(sel).forEach((el,i)=>{el.classList.add("rv");if(/project|cap|card|job/.test(sel))el.style.setProperty("--d",Math.min(i%3,2)*90+"ms");els.push(el)}));
+  // count-up targets
+  const nums=[...document.querySelectorAll(".proof strong")].map(el=>{const m=el.textContent.trim().match(/^(\d+)(.*)$/);return m?{el,to:+m[1],suf:m[2]}:null}).filter(Boolean);
+  const count=n=>{if(rm){return}const t0=performance.now(),dur=1100;n.el.textContent="0"+n.suf;
+    const step=t=>{const k=Math.min(1,(t-t0)/dur),e=1-Math.pow(1-k,3);n.el.textContent=Math.round(n.to*e)+n.suf;if(k<1)requestAnimationFrame(step)};requestAnimationFrame(step)};
+  if(!("IntersectionObserver" in window)){els.forEach(e=>e.classList.add("in"));return}
+  const io=new IntersectionObserver(es=>es.forEach(en=>{if(!en.isIntersecting)return;en.target.classList.add("in");if(en.target.classList.contains("proof"))nums.forEach(count);io.unobserve(en.target)}),{rootMargin:"0px 0px -6% 0px",threshold:.01});
+  els.forEach(e=>io.observe(e));
+  window.__rvSweep=()=>{const lim=innerHeight*.94;for(const e of els){if(!e.classList.contains("in")&&e.getBoundingClientRect().top<lim){e.classList.add("in");if(e.classList.contains("proof"))nums.forEach(count);io.unobserve(e)}}};
+  addEventListener("scroll",()=>{if(scrollY+innerHeight>=document.documentElement.scrollHeight-8)els.forEach(e=>e.classList.add("in"))},{passive:true});
+})();
 </script>
