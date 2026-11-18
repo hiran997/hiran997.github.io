@@ -309,6 +309,90 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
 .lb figcaption{color:#e4e9ec;font-size:.84rem;margin-top:10px;text-align:center}
 .toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--paper);padding:9px 16px;border-radius:2px;font-size:.82rem;z-index:80}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.pin,.project{transition:none}}
+
+/* ===== Refresh: larger type, section contrast, depth ===== */
+html{font-size:17px}
+body{margin:0}
+body{font-size:17px}
+.brand,.nav a{font-size:.86rem}
+.label{font-size:.72rem}
+.intro{font-size:1.1rem;line-height:1.7}
+.section{padding-block:96px}
+.section-head{margin-bottom:40px}
+.section-head h2{font-size:clamp(2.1rem,3.6vw,3rem);font-weight:650}
+.section-head p{font-size:1rem;max-width:480px}
+body{counter-reset:sec}
+.section .section-head .label{counter-increment:sec;display:flex;align-items:center;gap:10px;color:var(--gold);font-weight:600}
+.section .section-head .label::before{content:counter(sec,decimal-leading-zero)}
+.section .section-head .label::after{content:"";width:38px;height:2px;background:var(--gold)}
+
+/* hero: faint drafting grid */
+header#home{position:relative;isolation:isolate}
+header#home::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background-image:linear-gradient(color-mix(in srgb,var(--accent) 9%,transparent) 1px,transparent 1px),linear-gradient(90deg,color-mix(in srgb,var(--accent) 9%,transparent) 1px,transparent 1px);
+  background-size:32px 32px;-webkit-mask-image:linear-gradient(to bottom,#000 0%,rgba(0,0,0,.5) 55%,transparent 92%);mask-image:linear-gradient(to bottom,#000 0%,rgba(0,0,0,.5) 55%,transparent 92%)}
+.glance{border-radius:6px;box-shadow:0 24px 50px -28px rgba(12,24,34,.55)}
+.button{border-radius:4px;font-size:.84rem}
+
+/* proof strip as a dark band */
+.proof{background:var(--band);color:#eef2f4;border:0;border-radius:6px;padding:28px 30px;margin-top:6px;box-shadow:0 24px 50px -30px rgba(12,24,34,.6)}
+.proof div{border-left-color:rgba(255,255,255,.14)}
+.proof strong{color:#e6cf9f;font-size:2.2rem;font-weight:650}
+.proof span{color:#b9c7cf;font-size:.8rem}
+.proof a:hover span{color:#fff}
+.proof .b img{border-color:transparent}
+
+/* project cards: depth and hover */
+.project{border-radius:6px;overflow:hidden;box-shadow:0 1px 2px rgba(16,32,44,.05),0 12px 32px -20px rgba(16,32,44,.28);transition:transform .25s,box-shadow .25s,border-color .2s,opacity .2s}
+.project:hover{transform:translateY(-3px);border-color:color-mix(in srgb,var(--gold) 55%,var(--line));box-shadow:0 2px 4px rgba(16,32,44,.07),0 26px 44px -22px rgba(16,32,44,.38)}
+.project h3{font-size:1.24rem}
+.project.feature h3{font-size:1.6rem}
+.project p{font-size:.9rem}
+.project li{font-size:.84rem}
+.more{font-size:.84rem}
+.callout{border-radius:4px;font-size:.9rem}
+@media (prefers-reduced-motion:reduce){.project,.project:hover{transition:none;transform:none}}
+
+/* models: stronger tint so the band reads as its own space */
+#models{background:color-mix(in srgb,var(--accent) 10%,var(--paper))}
+.tabs b{font-size:.95rem}
+
+/* role mapping */
+.fit .roles,.fitpanel{border-radius:6px;box-shadow:0 12px 32px -22px rgba(16,32,44,.3)}
+.role b{font-size:.92rem}.role span{font-size:.78rem}
+.req .need{font-size:.9rem}.req .ev{font-size:.88rem}
+
+/* approach as a dark band */
+#approach{padding-block:88px!important;background:var(--band);color:#eef2f4;
+  --ink:#eef2f4;--muted:#b3c0c7;--line:rgba(255,255,255,.16);--accent:#e6cf9f;--raised:rgba(255,255,255,.06)}
+#approach .flow{border:0;gap:10px;grid-template-columns:repeat(8,minmax(0,1fr))}
+#approach .step{border:1px solid var(--line)!important;border-radius:6px;padding:16px 14px!important;background:rgba(255,255,255,.03);transition:background .2s,border-color .2s}
+#approach .step:hover{background:rgba(255,255,255,.08)}
+#approach .step[aria-pressed="true"]{background:rgba(230,207,159,.14);border-color:#e6cf9f!important}
+#approach .step .n{font:650 1.5rem var(--sans);color:#e6cf9f;letter-spacing:-.03em}
+#approach .step b{font-size:.88rem}
+#approach .flow-note{font-size:.95rem}
+@media (max-width:980px){#approach .flow{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media (max-width:520px){#approach .flow{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* career: timeline rail */
+.exp>div>div:first-child{border-left:2px solid color-mix(in srgb,var(--gold) 45%,var(--line));padding-left:26px}
+.job{position:relative}
+.job::before{content:"";position:absolute;left:-34px;top:25px;width:12px;height:12px;border-radius:50%;background:var(--paper);border:2px solid var(--gold)}
+.job:first-child::before{top:4px;background:var(--gold)}
+.job h3{font-size:1.1rem}.job .org{font-size:.84rem;color:var(--accent);font-weight:500}.job p{font-size:.9rem}
+.date{font-size:.72rem;font-weight:500}
+.minor div{font-size:.86rem}
+.card{border-radius:6px;border-top:3px solid var(--gold);box-shadow:0 12px 32px -22px rgba(16,32,44,.3)}
+.card h3{font-size:1.02rem}.card ul{font-size:.84rem}
+
+/* capabilities */
+.cap{border-radius:6px;border-top:3px solid var(--accent);box-shadow:0 12px 32px -24px rgba(16,32,44,.3);transition:transform .25s}
+.cap:nth-child(even){border-top-color:var(--gold)}
+.cap:hover{transform:translateY(-2px)}
+.cap h3{font-size:1rem}.cap p{font-size:.86rem}
+#skills{background:var(--surface)}
+footer{font-size:.78rem}
 </style>
 
 <nav class="top gut" aria-label="Main navigation"><div class="wrap">
