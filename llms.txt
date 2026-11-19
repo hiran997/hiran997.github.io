@@ -3,6 +3,7 @@
 > Product and R&D engineer in Kuopio, Finland. Takes products from requirements to working prototype: mechanical design, system integration, electronics, testing, drawings, costing and risk analysis. Certified SOLIDWORKS Professional (CSWP). Available for full-time work.
 
 - Portfolio: https://hiran997.github.io/
+- Portfolio in Finnish (suomeksi): https://hiran997.github.io/fi/
 - CV (PDF): https://hiran997.github.io/Hiran_Maladenige_CV.pdf
 - LinkedIn: https://www.linkedin.com/in/hiran-maladenige/
 - Email: hiranmaladenige@gmail.com
